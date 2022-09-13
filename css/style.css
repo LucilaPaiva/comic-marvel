@@ -3,12 +3,58 @@
   padding: 0;
 }
 
+.modo-oscuro {
+  background-image: url(https://wallpapers.com/images/hd/iron-man-in-the-dark-1ikpgsjkoayh9equ.jpg);
+  color: white;
+}
+
+.modo-claro {
+  background-image: url(https://images6.alphacoders.com/872/872239.jpg);
+}
+
 .logo-container {
-  height: 8vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #000;
+}
+
+.switch {
+  position: relative;
+  right: 1900%;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #9f0a0f;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 10px;
+  background-color: white;
+  left: 4px;
+  top: 4px;
+  transition: all 0.45s;
+}
+
+input[type=checkbox]:checked + .switch::after {
+  transform: translateX(20px);
+  background-color: #110921;
+}
+
+input[type=checkbox]:checked + .switch {
+  background-color: #5ff8c2;
+}
+
+.offscreen {
+  position: absolute;
+  left: -999999px;
 }
 
 .text-logo {
@@ -17,38 +63,36 @@
   color: #fff;
   font-family: "Bangers", cursive;
   font-weight: bold;
-  font-size: 1.2em;
-  /* line-height: 50px; */
-  padding: 0 10px;
+  font-size: 1em;
+  padding: 0px 10px;
 }
 
 .container-banner {
   width: 100%;
-  height: 60vh;
-  /* min-height: 400px; */
-  /* background-image: url(banner.jpg); */
+  height: 40vh;
   background-size: cover;
   position: relative;
   display: flex;
+  border-bottom: solid 2px #de2e03;
 }
 
 .img {
   width: 100%;
-  height: 80%;
 }
 
 .container-main {
-  padding: 2% 18%;
+  padding: 4% 20% 10%;
   font-family: "Kalam", cursive;
 }
 
 .container-main .container-search {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .container-main .container-search-input {
   width: 45%;
+  margin-top: 2%;
 }
 
 .container-main .container-search-input .icon-search {
@@ -64,8 +108,10 @@
 }
 
 .container-main .container-search-selects {
+  margin-top: 2%;
   width: 45%;
   font-size: 1em;
+  font-weight: bold;
 }
 
 .container-main .container-search-selects .select-search {
@@ -77,6 +123,8 @@
 }
 
 .container-main .search-button {
+  margin-top: 20%;
+  margin-left: -55%;
   background-color: #c4c0c0;
   position: relative;
   display: block;
@@ -87,7 +135,7 @@
   color: #000;
   font-size: 15px;
   overflow: hidden;
-  transition: all 300ms ease;
+  transition: all 2s ease;
   border: 2px solid #de2e03;
   margin-bottom: 40px;
   z-index: 0;
@@ -102,7 +150,7 @@
   top: 0;
   margin: auto;
   background-color: #de2e03;
-  transition: all 800ms ease;
+  transition: all 2s ease;
   z-index: -1;
 }
 
@@ -111,20 +159,23 @@
   right: 0;
   width: 100%;
   height: 150%;
-  transition: all 850ms ease;
+  transition: all 2s ease;
   transform: rotate(45deg);
-  box-shadow: 0 0 10 #de2e03, 0 0 20px #20e2d7, 0 0 20px #20e2d7;
+  box-shadow: 0 0 10 #de2e03, 0 0 20px #de2e03, 0 0 20px #de2e03;
 }
 
 .container-main .search-button--1:hover::before {
   left: 520px;
 } /*# sourceMappingURL=style.css.map */
+.container-footer {
+  border-top: solid 2px #de2e03;
+}
+
 footer {
   width: 100%;
   padding: 30px 0 40px;
   background-color: #020202;
   color: #fff;
-  margin-top: 120px;
   text-align: center;
 }
 
@@ -132,9 +183,7 @@ footer {
   width: 100%;
   font-size: 1.2em;
   font-family: "Bangers", cursive;
-  /* max-width: 1200px; */
   margin: 0 auto;
-  /* padding: 0 10px; */
 }
 
 .container-iconos {
@@ -142,6 +191,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: 2s;
 }
 
 .iconos-footer {
@@ -150,7 +200,10 @@ footer {
 
 .img-footer {
   width: 25%;
-  border-radius: 50px;
+}
+
+.iconos-footer:hover {
+  transform: rotate(20deg);
 }
 
 /*# sourceMappingURL=style.css.map */
