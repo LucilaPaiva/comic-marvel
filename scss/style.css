@@ -158,6 +158,41 @@ input[type='checkbox']:checked + .switch {
   left: 520px;
 } /*# sourceMappingURL=style.css.map */
 
+/************* pagination *************/
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.pagination-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.pagination-button:disabled {
+  color: #757575;
+  border-color: #757575;
+}
+
+.container-paginador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Bangers", cursive;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+
+/*************** FOOTER *************/
+
 .container-footer {
   border-top: solid 2px #de2e03;
 }
