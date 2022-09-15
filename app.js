@@ -1,4 +1,3 @@
-
 // **************** API KEY ******************
 
 const apiPublic = '9793363e7276e556c84635fef3aecb00';
@@ -17,15 +16,23 @@ fetch(url) // es una promesa pendiente
 
 const toggle = document.getElementById("toggle");
 const main = document.getElementById("main");
+const iconSearch= document.getElementById("icon-search");
 
 toggle.addEventListener("change", () => {
   if (toggle.checked) {
     main.classList.add("modo-oscuro");
     main.classList.remove("modo-claro");
+    iconSearch.style.color= '#fff'
   } else {
     main.classList.add("modo-claro");
     main.classList.remove("modo-oscuro");
+    iconSearch.style.color= '#000'
   }
 });
 
 
+
+
+$(document).ready(function(){
+  $('select').formSelect();
+});
