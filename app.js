@@ -30,9 +30,49 @@ toggle.addEventListener("change", () => {
   }
 });
 
+const divCardCharacter = document.getElementById('div-card-character');
+
+let data = [];
+
+const printData  = () => {
+    let card = '';
+        card +=  `<div class="col s12 m12 container-card-character">
+        <div class="card card-character">
+            <div class="card-image container-img-character">
+                <img class="img-character" src="imagenes/strange2.png">
+                <a class="mas-info" href="#"><i class="material-icons">add</i></a>
+                <div class="card-content card-content-info">
+                    <div class="contein-info">
+                        <span class="title-character">Card Title</span>
+                        <p class="text-character">I am a very simple card.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+  divCardCharacter.innerHTML= card;
+}
+
+const selectSearchTipo = document.getElementById("select-search-tipo");
+
+selectSearchTipo.addEventListener('change' , () => {
+
+  const porTipo = selectSearchTipo.value;
+
+  if(porTipo === 'personajes'){
+    printData()
+  }
+
+  console.log(porTipo);
+
+})
+
+
+
+
 
 
 
 $(document).ready(function(){
   $('select').formSelect();
-});
+})

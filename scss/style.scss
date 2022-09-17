@@ -6,10 +6,14 @@
 .modo-oscuro {
     background-image: url(https://wallpapers.com/images/hd/iron-man-in-the-dark-1ikpgsjkoayh9equ.jpg);
     color: white;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .modo-claro {
     background-image: url(https://images6.alphacoders.com/872/872239.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -61,8 +65,11 @@
 
 
 .container-main {
-    padding: 2% 20% 1%;
+    width: 100%;
+    padding: 2% 20%;
     font-family: 'Kalam', cursive;
+    background-color: #000;
+    color: #fff;
 
     .search-title {
 
@@ -191,38 +198,111 @@
         }
     }
 
+    .div-card-character{
+        margin: 0%;
+        margin-top: 15%;
+        padding: 0%;
+        width: 17%;
 
-    .container-paginador {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: "Bangers", cursive;
-        font-size: 1.3em;
-        font-weight: bold;
-        margin-top: 20%;
-        padding: 1%;
+        .container-card-character {
+            padding: 0%;
+            margin: 0%;
+
+            .card-character {
+                border: solid 2px #a20f0f;
+
+                .container-img-character {
+                    overflow: hidden;
+
+                    .img-character {
+                        height: 25vh;
+                    }
+
+                    .mas-info{
+                        background-color: #b30909;
+                        color: #fff;
+                        margin: auto;
+                        position: absolute;
+                        bottom: 0.2%;
+                        left: 5%;
+                        border-radius: 100%;
+                        font-size: 2em;
+                    }
+
+                    
+                    .card-content-info{
+                        background-color: #000;
+                        height: 12vh;
+                        padding: 2%;
+                        border-top: solid 5px #a20f0f;
+                        position: relative;
+
+                        .contein-info {
+                            margin: 0%;
+                            padding: 5% 5% 0%;
+
+                            .title-character {
+                                font-size: 1.3em;
+                            }
+                            .text-character {
+                                padding: 5%;
+                            }
+                        }
+                    }   
+
+                    .card-content-info:hover{
+                        background-color: #a20f0f;
+                    }
+                }
+
+                .container-img-character:hover img{
+                    transform: scale(1.2);
+                    transition-duration: .8s;
+                    filter: grayscale(90%);
+                } 
+            }
+
+            .card-character:hover {
+                box-shadow: 5px 5px 10px -1px rgba(0, 0, 0, 0.66);
+                cursor: pointer;
+            }
+        }
     }
 
 
-    .pagination {
-        display: flex;
-        justify-content: center;
+    .div-container-paginador {
+        margin: 15% 0% 3%;
 
-
-        .pagination-button {
-            width: 40px;
-            height: 40px;
-            margin: 15px;
-            cursor: pointer;
+        .container-paginador {
             display: flex;
-            justify-content: center;
+            color: #ed1d23;
+            flex-direction: column;
             align-items: center;
-            font-size: 25px;
+            font-family: "Bangers", cursive;
+            font-size: 1.3em;
+            font-weight: bold;
         }
 
-        .pagination-button:disabled {
-            color: #757575;
-            border-color: #757575;
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+
+            .pagination-button {
+                width: 40px;
+                height: 40px;
+                margin: 15px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 25px;
+            }
+
+            .pagination-button:disabled {
+                color: #757575;
+                border-color: #757575;
+            }
         }
     }
 

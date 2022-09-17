@@ -49,7 +49,7 @@
             <div class="my-nav-selects">
                 <div class="select-tipo">
                     <label class="label-select-tipo color">Tipo</label>
-                    <select class="select-search-tipo">
+                    <select class="select-search" id="select-search-tipo">
                         <option value="comic" selected>Comic</option>
                         <option value="personajes">Personajes</option>
                     </select>
@@ -69,45 +69,49 @@
             </div>
         </div>
 
+        <div class="div-card-character" id="div-card-character">
         </div>
-        <div class="container-paginador">
-            <p>Pagina Actual: <span id="pagina-actual"></span></p>
-            <p>Total de paginas: <span id="total-paginas"></span></p>
-        </div>
+
+        <div class="div-container-paginador">
+            <div class="container-paginador">
+                <p>Pagina Actual: <span id="pagina-actual"></span></p>
+                <p>Total de paginas: <span id="total-paginas"></span></p>
+            </div>
       
-        <div class="pagination">
-            <button
-              type="button"
-              id="first-page"
-              class="first-page pagination-button"
-              aria-label="Página previa"
-            >
-              <i class="fas fa-angle-double-left" aria-hidden="true"></i>
-            </button>
-            <button
-              type="button"
-              id="previus-page"
-              class="previous-page pagination-button"
-              aria-label="Página Anterior"
-            >
-              <i class="fas fa-angle-left" aria-hidden="true"></i>
-            </button>
-            <button
-              type="button"
-              id="next-page"
-              class="next-page pagination-button"
-              aria-label="Siguiente Página"
-            >
-              <i class="fas fa-angle-right" aria-hidden="true"></i>
-            </button>
-            <button
-              type="button"
-              id="last-page"
-              class="last-page pagination-button"
-              aria-label="Última página"
-            >
-              <i class="fas fa-angle-double-right" aria-hidden="true"></i>
-            </button>
+            <div class="pagination">
+                <button
+                type="button"
+                id="first-page"
+                class="first-page pagination-button"
+                aria-label="Página previa"
+                >
+                <i class="fas fa-angle-double-left" aria-hidden="true"></i>
+                </button>
+                <button
+                type="button"
+                id="previus-page"
+                class="previous-page pagination-button"
+                aria-label="Página Anterior"
+                >
+                <i class="fas fa-angle-left" aria-hidden="true"></i>
+                </button>
+                <button
+                type="button"
+                id="next-page"
+                class="next-page pagination-button"
+                aria-label="Siguiente Página"
+                >
+                <i class="fas fa-angle-right" aria-hidden="true"></i>
+                </button>
+                <button
+                type="button"
+                id="last-page"
+                class="last-page pagination-button"
+                aria-label="Última página"
+                >
+                <i class="fas fa-angle-double-right" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
     </main>
 
