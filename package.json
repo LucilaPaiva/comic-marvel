@@ -1,0 +1,23 @@
+{
+  "name": "ada-comic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss/style.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucilaPaiva/comic-marvel.git"
+  },
+  "author": "Verónica Segovia y Lucila Paiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucilaPaiva/comic-marvel/issues"
+  },
+  "homepage": "https://github.com/LucilaPaiva/comic-marvel#readme",
+  "dependencies": {
+    "sass": "^1.54.9"
+  }
+}
