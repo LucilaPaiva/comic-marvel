@@ -93,6 +93,7 @@ const fectchComics = async () => {
   const {
     data: { results, total },
   } = await fectchUrl(getApiURL("comics"));
+  clearResults();
   printComics(results);
   updateResultsCount(total);
 };
@@ -165,9 +166,9 @@ const fectchCharacters = async () => {
   const {
     data: { results, total },
   } = await fectchUrl(getApiURL("characters"));
+    clearResults();
     printCharacters(results);
   // updateResultsCount(total)
-  clearResults();
 };
 
 const printCharacters = (characters) => {
@@ -184,7 +185,7 @@ const printCharacters = (characters) => {
     };
 
     charactersCard.innerHTML = `
-    <div class="characters-img-container">
+    <div class="character-img-container">
       <div class="col s12 m12 container-card-character">
         <div class="card card-character">
           <div class="card-image container-img-character">
