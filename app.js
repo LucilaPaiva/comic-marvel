@@ -1,13 +1,15 @@
-const selectSearchTipo = document.querySelector('#select-search-tipo');
-const divCardCharacter = document.querySelector('#div-card-character');
-const resultsNumber = document.querySelector('.results-number');   
-
-
+const selectSearchTipo = document.querySelector("#select-search-tipo");
+const divCardCharacter = document.querySelector("#div-card-character");
+const resultsNumber = document.querySelector(".results-number");
+const results = document.querySelector("#results");
+const resultsSection = document.querySelector(".results-section");
+const characterSection = document.querySelector(".character-section");
+const searchButton = document.querySelector(".search-button");
 
 // **************** API KEY ******************
 
 // luci
-// const apiPublic = '9793363e7276e556c84635fef3aecb00';
+const apiPublic = "9793363e7276e556c84635fef3aecb00";
 // const apiPrivate = '70b432de62d5b48263eaf29757a150e30befce52';
 
 // vero
@@ -20,161 +22,128 @@ const resultsNumber = document.querySelector('.results-number');
 //   .then(resp => resp.json()) // Resuelve exitosa => Respuesta status 200
 //   .then(json => console.log(json));
 
-
-
-
 // // *********** Botón modo claro/modo oscuro ****************
 
 const toggle = document.getElementById("toggle");
 const main = document.getElementById("main");
-const iconSearch= document.getElementById("icon-search");
+const iconSearch = document.getElementById("icon-search");
 
 toggle.addEventListener("change", () => {
   if (toggle.checked) {
     main.classList.add("modo-oscuro");
     main.classList.remove("modo-claro");
-    iconSearch.style.color= '#fff'
+    iconSearch.style.color = "#fff";
   } else {
     main.classList.add("modo-claro");
     main.classList.remove("modo-oscuro");
-    iconSearch.style.color= '#000'
+    iconSearch.style.color = "#000";
   }
 });
 
-// const divCardCharacter = document.getElementById('div-card-character');
 
-// let data = [];
-
-// const printData  = () => {
-//     let card = '';
-//         card +=  `<div class="col s12 m12 container-card-character">
-//         <div class="card card-character">
-//             <div class="card-image container-img-character">
-//                 <img class="img-character" src="imagenes/strange2.png">
-//                 <a class="mas-info" href="#"><i class="material-icons">add</i></a>
-//                 <div class="card-content card-content-info">
-//                     <div class="contein-info">
-//                         <span class="title-character">Card Title</span>
-//                         <p class="text-character">I am a very simple card.</p>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>`
-//   divCardCharacter.innerHTML= card;
-// }
-
-// selectSearchTipo.addEventListener('change' , () => {
-
-//   const porTipo = selectSearchTipo.value;
-
-//   if(porTipo === 'personajes'){
-//     printData()
-//   }
-
-//   console.log(porTipo);
-
-// })
-
-// const element = (el) => document.querySelector(el);
 
 // **************** API KEY ******************
 
 // const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apiPublic}`;
 
-const baseUrl = 'http://gateway.marvel.com/v1/public/';
+const baseUrl = "http://gateway.marvel.com/v1/public/";
 let offset = 0;
 let resultCount = 0;
 
 const getSearchParams = (isSearch) => {
-  let searchParams = `?apikey=${apiPublic}&offset=${offset}`
+  let searchParams = `?apikey=${apiPublic}&offset=${offset}`;
 
-  if(!searchParams){
-   return searchParams;
+  if (!searchParams) {
+    return searchParams;
   }
 
-  return searchParams
-}
+  return searchParams;
+};
 
 const getApiURL = (resourse, resourseId, subResourse) => {
   const isSearch = !resourse && !subResourse;
   let url = `${baseUrl}${resourse}`;
 
-  if(resourseId){
-    url += `/${resourseId}`
+  if (resourseId) {
+    url += `/${resourseId}`;
   }
 
-  if(subResourse){
-    url += `/${subResourse}`
+  if (subResourse) {
+    url += `/${subResourse}`;
   }
 
-  url += getSearchParams(isSearch)
+  url += getSearchParams(isSearch);
   return url;
-}
+};
 
-const updateResultsCount = count => {
+const updateResultsCount = (count) => {
   resultsNumber.innerHTML = count;
   resultCount = count;
-}
+};
 
-const fectchUrl = async url => {
+const fectchUrl = async (url) => {
   const response = await fetch(url);
   const json = await response.json();
   return json;
-}
+};
+
+// **************** Card de comics **************
 
 const fectchComics = async () => {
-  const {data: {results, total}
-    } = await fectchUrl(getApiURL('comics'));
+  const {
+    data: { results, total },
+  } = await fectchUrl(getApiURL("comics"));
   printComics(results);
-  updateResultsCount(total)
-}
+  updateResultsCount(total);
+};
 
-const printComics = comics => {
-  if(comics.length === 0){
-    results.innerHTML = '<h2 class= "no-results">No se encontraron resultados</h2>'
+const printComics = (comics) => {
+  if (comics.length === 0) {
+    results.innerHTML =
+      '<h2 class= "no-results">No se encontraron resultados</h2>';
   }
 
   for (const comic of comics) {
-    const comicCard = document.createElement('div');
+    const comicCard = document.createElement("div");
     comicCard.tabIndex = 0;
-    comicCard.classList.add('comic');
+    comicCard.classList.add("comic");
     comicCard.onclick = () => {
-    }
-    fetchComic(comic.id)
+      fetchComic(comic.id);
+    };
+
     comicCard.innerHTML = `<div class="comic-img-container">
                             <img src="${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}" alt="${comic.title}" class="comic-thumbnail" />
                           </div>
-                          <p class="comic-title">${comic.title}</p>`
-    results.append(comicCard)
+                          <p class="comic-title">${comic.title}</p>`;
+    results.append(comicCard);
   }
-}
+};
 
-const fetchComic = async comicId => {
+const fetchComic = async (comicId) => {
   const {
-    data : 
-    {
-      results: [comic]
-    }
-  } = await fectchUrl(getApiURL('comics', comicId))
+    data: {
+      results: [comic],
+    },
+  } = await fectchUrl(getApiURL("comics", comicId));
+  clearResults()
 
-//   const coverPath = `${comic.thunbnail.path}.${comic.thumbnail.extension}`
-//   const releaseDate = new Intl.DateTimeFormat('es-MX').format(
-//     new Date(comic.date.find(date => date.type === 'onsaleDate').date)
-//   )
-//   const writers = comic.creators.items
-//   .filter(creator => creator.role === 'writer')
-//   .map(creator => creator.rame)
-//   .join(', ')
-//   updateComicDetails(
-//     coverPath,
-//     comic.title,
-//     releaseDate,
-//     writers,
-//     comic.description
-//   )
-//   showComicDetail()
- }
+  //   const coverPath = `${comic.thunbnail.path}.${comic.thumbnail.extension}`
+  //   const releaseDate = new Intl.DateTimeFormat('es-MX').format(
+  //     new Date(comic.date.find(date => date.type === 'onsaleDate').date)
+  //   )
+  //   const writers = comic.creators.items
+  //   .filter(creator => creator.role === 'writer')
+  //   .map(creator => creator.rame)
+  //   .join(', ')
+  //   updateComicDetails(
+  //     coverPath,
+  //     comic.title,
+  //     releaseDate,
+  //     writers,
+  //     comic.description
+  //   )
+  //   showComicDetail()
+};
 
 // const updateComicDetails =  (img, title, releaseDate, writers, description) => {
 //   comicCover.src = img;
@@ -190,21 +159,79 @@ const fetchComic = async comicId => {
 //   }
 // }
 
+// ****************** CARD DE PERSONAJE ***********************
+
+const fectchCharacters = async () => {
+  const {
+    data: { results, total },
+  } = await fectchUrl(getApiURL("characters"));
+    printCharacters(results);
+  // updateResultsCount(total)
+  clearResults();
+};
+
+const printCharacters = (characters) => {
+  if (characters.length === 0) {
+    results.innerHTML =
+      '<h2 class= "no-results">No se encontraron resultados</h2>';
+  }
+
+  for (const character of characters) {
+    const charactersCard = document.createElement("div");
+    charactersCard.tabIndex = 0;
+    charactersCard.onclick = () => {
+      fetchCharacter(character.id);
+    };
+
+    charactersCard.innerHTML = `
+    <div class="characters-img-container">
+      <div class="col s12 m12 container-card-character">
+        <div class="card card-character">
+          <div class="card-image container-img-character">
+            <img class="img-character" src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
+            <a class="mas-info" href="#"><i class="material-icons">add</i></a>
+            <div class="card-content card-content-info">
+                <div class="contein-info">
+                  <h3 class="title-character">${character.name}</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    results.append(charactersCard);
+  }
+};
+
+const fetchCharacter = async (characterId) => {
+  const {
+    data: {
+      results: [character],
+    },
+  } = await fectchUrl(getApiURL("characters", characterId));
+  clearResults();
+  printCharacters(results);
+};
+const clearResults = () => (results.innerHTML = "");
 
 const search = () => {
-  if(selectSearchTipo.value === 'comics'){
-    fectchComics()
+  if (selectSearchTipo.value === "comics") {
+    fectchComics();
   }
-}
+  if (selectSearchTipo.value === "characters") {
+    fectchCharacters();
+  }
+};
 
 const inicio = () => {
-  search()
-}
+  searchButton.addEventListener("click", () => {
+    search();
+  });
+  search();
+};
 
-
-
-$(document).ready(function(){
-  $('select').formSelect();
-})
+$(document).ready(function () {
+  $("select").formSelect();
+});
 
 window.onload = inicio;
