@@ -1,10 +1,18 @@
 const selectSearchTipo = document.querySelector("#select-search-tipo");
-const divCardCharacter = document.querySelector("#div-card-character");
+const loaderContainer = document.querySelector(".loader-container");
 const resultsNumber = document.querySelector(".results-number");
 const results = document.querySelector("#results");
 const resultsSection = document.querySelector(".results-section");
 const characterSection = document.querySelector(".character-section");
 const searchButton = document.querySelector(".search-button");
+const comicImg = document.querySelector(".comic-img");
+const comicTitle = document.querySelector(".comic-title");
+const comicPublished = document.querySelector(".comic-published");
+const comicWriters = document.querySelector(".comic-writers");
+const comicDescription = document.querySelector(".comic-description");
+const comicSection= document.querySelector(".comic-section");
+const comicDetails= document.querySelector(".comic-details");
+
 
 // **************** API KEY ******************
 
@@ -46,11 +54,12 @@ toggle.addEventListener("change", () => {
 
 // const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apiPublic}`;
 
-const baseUrl = "http://gateway.marvel.com/v1/public/";
+const baseUrl = "https://gateway.marvel.com/v1/public/";
 let offset = 0;
 let resultCount = 0;
 
 const getSearchParams = (isSearch) => {
+  let url = baseUrl;
   let searchParams = `?apikey=${apiPublic}&offset=${offset}`;
 
   if (!searchParams) {
@@ -91,7 +100,7 @@ const fectchUrl = async (url) => {
 
 const fectchComics = async () => {
   const {
-    data: { results, total },
+    data: {results, total}
   } = await fectchUrl(getApiURL("comics"));
   clearResults();
   printComics(results);
@@ -121,54 +130,60 @@ const printComics = (comics) => {
 };
 
 const fetchComic = async (comicId) => {
+  showLoader()
   const {
     data: {
-      results: [comic],
-    },
+      results: [comic]
+    }
   } = await fectchUrl(getApiURL("comics", comicId));
-  clearResults()
 
-  //   const coverPath = `${comic.thunbnail.path}.${comic.thumbnail.extension}`
-  //   const releaseDate = new Intl.DateTimeFormat('es-MX').format(
-  //     new Date(comic.date.find(date => date.type === 'onsaleDate').date)
-  //   )
-  //   const writers = comic.creators.items
-  //   .filter(creator => creator.role === 'writer')
-  //   .map(creator => creator.rame)
-  //   .join(', ')
-  //   updateComicDetails(
-  //     coverPath,
-  //     comic.title,
-  //     releaseDate,
-  //     writers,
-  //     comic.description
-  //   )
-  //   showComicDetail()
+    const coverPath = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
+    const releaseDate = new Intl.DateTimeFormat('es-AR').format(
+      new Date(comic.dates.find(date => date.type === 'onsaleDate').date)
+    )
+    const writers = comic.creators.items
+    .filter(creator => creator.role === 'writer')
+    .map(creator => creator.name)
+    .join(', ')
+    updateComicDetails(
+      coverPath,
+      comic.title,
+      releaseDate,
+      writers,
+      comic.description
+    )
+    showComicDetail()
 };
 
-// const updateComicDetails =  (img, title, releaseDate, writers, description) => {
-//   comicCover.src = img;
-//   comicTitle.innerHTML = title;
-//   comicPublished.innerHTML = releaseDate;
-//   comicWriters.innerHTML = writers;
-//   comicDescription.innerHTML = description
-// }
+const hiddenComics = () => {
+  resultsSection.classList.add('hidden')
+}
 
-// const showComicDetail = () => {
-//   if(selectSearchTipo.value === 'comics'){
+const showDetailComic = () => {
+  comicSection.classList.remove('hidden')
+  comicDetails.classList.remove('hidden')
+}
 
-//   }
-// }
+const updateComicDetails =  (img, title, releaseDate, writers, description) => {
+  comicImg.src = img;
+  comicTitle.innerHTML = title;
+  comicPublished.innerHTML = releaseDate;
+  comicWriters.innerHTML = writers;
+  comicDescription.innerHTML = description
+  hideLoader()
+}
+
+
 
 // ****************** CARD DE PERSONAJE ***********************
 
 const fectchCharacters = async () => {
   const {
-    data: { results, total },
+    data: {results, total}
   } = await fectchUrl(getApiURL("characters"));
     clearResults();
     printCharacters(results);
-  // updateResultsCount(total)
+    updateResultsCount(total);
 };
 
 const printCharacters = (characters) => {
@@ -205,6 +220,7 @@ const printCharacters = (characters) => {
 };
 
 const fetchCharacter = async (characterId) => {
+  showLoader()
   const {
     data: {
       results: [character],
@@ -213,9 +229,19 @@ const fetchCharacter = async (characterId) => {
   clearResults();
   printCharacters(results);
 };
+
+const showComicDetail = () => {
+  showDetailComic()
+  hiddenComics()
+}
+
 const clearResults = () => (results.innerHTML = "");
 
+const showLoader = () => loaderContainer.classList.remove('hidden');
+const hideLoader = () => loaderContainer.classList.add('hidden');
+
 const search = () => {
+  showLoader()
   if (selectSearchTipo.value === "comics") {
     fectchComics();
   }
