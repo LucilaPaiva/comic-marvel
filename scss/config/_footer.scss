@@ -1,0 +1,37 @@
+.container-footer {
+    border-top: solid 2px #de2e03;
+    width: 100%;
+    padding: 3%;
+    background-color: #020202;
+    color: #fff;
+    text-align: center;
+
+
+    .text-footer {
+        width: 100%;
+        font-size: 1.2em;
+        font-family: "Bangers", cursive;
+        margin: 0 auto;
+    }
+
+
+    .container-iconos {
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        transition: 2s;
+
+        .iconos-footer {
+            padding: 1%;
+
+            .img-footer {
+                width: 25%;
+            }
+
+            &:hover {
+                transform: rotate(20deg);
+            }
+        }
+    }
+}
