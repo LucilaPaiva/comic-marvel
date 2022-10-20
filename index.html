@@ -22,7 +22,7 @@
                   <input type="checkbox" id="toggle" class="offscreen">
                   <span class="lever"></span>
                 </label>
-              </div>
+            </div>
             <div class="text-logo">
                 <h1 class="title-logo">ADA COMIC</h1>
             </div>
@@ -68,6 +68,19 @@
                 <button type="button" class="search-button search-button--1">Buscar</button>
             </div>
         </div>
+
+        <section class="comic-section hidden">
+            <img src="" class="comic-img">
+            <div class="comic-details hidden">
+                <h4 class="comic-title"></h4>
+                <h5>Publicado:</h5>
+                <p class="comic-published"></p>
+                <h5>Gionistas:</h5>
+                <p class="comic-writers"></p>
+                <h5>Descripción:</h5>
+                <p class="comic-description"></p>
+            </div>
+        </section>
 
         <section class="results-section">
             <div class="title-results">
@@ -120,7 +133,8 @@
             </div>
         </section>
 
-        <div class="div-card-character" id="div-card-character">
+        <div class="loader-container hidden">
+            <div class="loader"></div>
         </div>
     </main>
 
