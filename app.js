@@ -174,7 +174,6 @@ const updateComicDetails =  (img, title, releaseDate, writers, description) => {
 }
 
 
-
 // ****************** CARD DE PERSONAJE ***********************
 
 const fectchCharacters = async () => {
@@ -205,8 +204,7 @@ const printCharacters = (characters) => {
         <div class="card card-character">
           <div class="card-image container-img-character">
             <img class="img-character" src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
-            <a class="mas-info" href="#"><i class="material-icons">add</i></a>
-            <div class="card-content card-content-info">
+            <div class="card-content">
                 <div class="contein-info">
                   <h3 class="title-character">${character.name}</h3>
                 </div>
