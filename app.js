@@ -154,6 +154,7 @@ const fetchComic = async (comicId) => {
     )
     showComicDetail()
     charactersComic(comicId)
+    charactersCardComic(comicId)
 };
 
 const hiddenComics = () => {
@@ -175,7 +176,7 @@ const updateComicDetails =  (img, title, releaseDate, writers, description) => {
 }
 
 const resultadoPersonajesComic = document.getElementById('resultados-personajes');
-const cardsDePersonajes = document.getElementById('cards-de-personajes')
+const cardsComicPersonajes = document.getElementById('cards-comic-personajes')
 
 const charactersComic = async (comicId) => {
   const {
@@ -198,6 +199,15 @@ const charactersComic = async (comicId) => {
     <p>${results.length} RESULTADOS</p>
     </div>
     `
+  }
+};
+
+const charactersCardComic = async (comicId) => {
+  const {
+    data: {results}
+  } = await fectchUrl(getApiURL("comics", comicId, 'characters'));
+
+  for (const result of results) { 
     resultadoPersonajesComic.innerHTML += `
     <div class="character-img-container">
       <div class="col s12 m12 container-card-character">
