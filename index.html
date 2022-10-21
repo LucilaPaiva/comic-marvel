@@ -70,15 +70,19 @@
         </div>
 
         <section class="comic-section hidden">
-            <img src="" class="comic-img">
-            <div class="comic-details hidden">
-                <h4 class="comic-title"></h4>
-                <h5>Publicado:</h5>
-                <p class="comic-published"></p>
-                <h5>Gionistas:</h5>
-                <p class="comic-writers"></p>
-                <h5>Descripción:</h5>
-                <p class="comic-description"></p>
+            <div class="container-img-description">
+                <img src="" class="comic-img">
+                <div class="comic-details hidden">
+                    <h4 class="comic-title"></h4>
+                    <h5>Publicado:</h5>
+                    <p class="comic-published"></p>
+                    <h5>Gionistas:</h5>
+                    <p class="comic-writers"></p>
+                    <h5>Descripción:</h5>
+                    <p class="comic-description"></p>
+                </div>
+            </div>
+            <div id="resultados-personajes" class="resultados-personajes">
             </div>
         </section>
 
@@ -132,10 +136,6 @@
                 </div>
             </div>
         </section>
-
-        <div class="loader-container hidden">
-            <div class="loader"></div>
-        </div>
     </main>
 
     <footer class="container-footer">
@@ -158,6 +158,14 @@
             </div>
         </div>
     </footer>
+
+    <div id="loader-container" class="loader-container">
+        <div class="loader">
+            <div class="espera1 div"></div>
+            <div class="espera2 div"></div>
+            <div class="espera3 div"></div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

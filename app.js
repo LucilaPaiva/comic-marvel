@@ -1,5 +1,5 @@
 const selectSearchTipo = document.querySelector("#select-search-tipo");
-const loaderContainer = document.querySelector(".loader-container");
+const loaderContainer = document.querySelector("#loader-container");
 const resultsNumber = document.querySelector(".results-number");
 const results = document.querySelector("#results");
 const resultsSection = document.querySelector(".results-section");
@@ -105,6 +105,7 @@ const fectchComics = async () => {
   clearResults();
   printComics(results);
   updateResultsCount(total);
+  hideLoader()
 };
 
 const printComics = (comics) => {
@@ -130,7 +131,6 @@ const printComics = (comics) => {
 };
 
 const fetchComic = async (comicId) => {
-  showLoader()
   const {
     data: {
       results: [comic]
@@ -153,6 +153,7 @@ const fetchComic = async (comicId) => {
       comic.description
     )
     showComicDetail()
+    charactersComic(comicId)
 };
 
 const hiddenComics = () => {
@@ -173,6 +174,49 @@ const updateComicDetails =  (img, title, releaseDate, writers, description) => {
   hideLoader()
 }
 
+const resultadoPersonajesComic = document.getElementById('resultados-personajes');
+const cardsDePersonajes = document.getElementById('cards-de-personajes')
+
+const charactersComic = async (comicId) => {
+  const {
+    data: {results, total}
+  } = await fectchUrl(getApiURL("comics", comicId, 'characters'));
+
+  if(results.length === 0){
+    resultadoPersonajesComic.innerHTML = `
+    <div class="resultados-card">
+      <h3>Personajes</h3>
+      <p>0 RESULTADOS</p>
+      <h4>No hemos encontrado resultados</h4>
+    </div>`
+  }
+  for (const result of results) { 
+    comicSection.tabIndex = 0;
+    resultadoPersonajesComic.innerHTML = `
+    <div class="resultados-card">
+    <h3>Personajes</h3>
+    <p>${results.length} RESULTADOS</p>
+    </div>
+    `
+    resultadoPersonajesComic.innerHTML += `
+    <div class="character-img-container">
+      <div class="col s12 m12 container-card-character">
+        <div class="card card-character">
+          <div class="card-image container-img-character">
+            <img src="${result.thumbnail.path}/portrait_fantastic.${result.thumbnail.extension}" alt=${result.name} class="character-thumbnail">
+            <div class="card-content-info">
+                <div class="contein-info">
+                  <h3 class="title-character">${result.name}</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`
+  }
+};
+
+
 
 // ****************** CARD DE PERSONAJE ***********************
 
@@ -183,6 +227,7 @@ const fectchCharacters = async () => {
     clearResults();
     printCharacters(results);
     updateResultsCount(total);
+    hideLoader()
 };
 
 const printCharacters = (characters) => {
@@ -203,8 +248,8 @@ const printCharacters = (characters) => {
       <div class="col s12 m12 container-card-character">
         <div class="card card-character">
           <div class="card-image container-img-character">
-            <img class="img-character" src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
-            <div class="card-content">
+            <img src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
+            <div class="card-content-info">
                 <div class="contein-info">
                   <h3 class="title-character">${character.name}</h3>
                 </div>
@@ -226,6 +271,7 @@ const fetchCharacter = async (characterId) => {
   } = await fectchUrl(getApiURL("characters", characterId));
   clearResults();
   printCharacters(results);
+
 };
 
 const showComicDetail = () => {
@@ -235,8 +281,10 @@ const showComicDetail = () => {
 
 const clearResults = () => (results.innerHTML = "");
 
-const showLoader = () => loaderContainer.classList.remove('hidden');
-const hideLoader = () => loaderContainer.classList.add('hidden');
+const showLoader  = () => loaderContainer.style.display="block";
+
+const hideLoader = () => loaderContainer.style.display="none";
+
 
 const search = () => {
   showLoader()

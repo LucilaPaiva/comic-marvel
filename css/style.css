@@ -78,9 +78,75 @@
   font-size: 1.6em;
 }
 
+.loader-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(136, 86, 86, 0.99);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 450px;
+  padding-top: 50vh;
+}
+
+.loader {
+  width: 10em;
+  height: 10em;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.loader .div {
+  width: 15em;
+  height: 15em;
+  padding: 1%;
+  border-radius: 50%;
+  border: 6px solid #ed1d23;
+  margin-right: 5%;
+}
+.loader .div:nth-child(1) {
+  animation: preloader 1.3s ease-in-out alternate infinite;
+  background-color: #757575;
+}
+.loader .div:nth-child(2) {
+  animation: preloader 1.5s ease-in-out alternate 0.2s infinite;
+  background-color: #757575;
+}
+.loader .div:nth-child(3) {
+  animation: preloader 1.8s ease-in-out alternate 0.4s infinite;
+  background-color: #757575;
+}
+.loader .espera1 {
+  content: url(/imagenes/gamora.png);
+  animation-delay: 1s;
+}
+.loader .espera2 {
+  content: url(/imagenes/natasha.png);
+  animation-delay: 3s;
+}
+.loader .espera3 {
+  content: url(/imagenes/wanda.png);
+  animation-delay: 5s;
+}
+
+@keyframes preloader {
+  35% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(50px);
+    background-color: #de2e03;
+  }
+}
 * {
   margin: 0;
   padding: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .container-main {
@@ -191,17 +257,63 @@
 .container-main .my-nav-container .container-button .search-button--1:hover::before {
   left: 520px;
 }
-.container-main .hidden {
-  display: none;
-}
 .container-main .comic-section {
   margin-top: 3%;
   color: #a20f0f;
+  background-color: rgba(0, 0, 0, 0.88);
+}
+.container-main .comic-section .container-img-description {
   display: flex;
 }
-.container-main .comic-section .comic-details {
+.container-main .comic-section .container-img-description .comic-details {
   margin: 3%;
   font-weight: bold;
+}
+.container-main .comic-section .resultados-personajes {
+  padding: 1%;
+  height: 35%;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character {
+  border: solid 2px #a20f0f;
+  width: 13.5em;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character {
+  overflow: hidden;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character .character-thumbnail {
+  height: 25vh;
+  width: 100%;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character .card-content-info {
+  background-color: #000;
+  height: 12vh;
+  padding: 2%;
+  border-top: solid 5px #a20f0f;
+  position: relative;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character .card-content-info .contein-info {
+  margin: 0%;
+  padding: 5% 5% 0%;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character .card-content-info .contein-info .title-character {
+  font-size: 1.3em;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character .card-content-info .contein-info .text-character {
+  padding: 5%;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character:hover img {
+  transform: scale(1.2);
+  transition-duration: 0.8s;
+  filter: grayscale(90%);
+  background-color: #a20f0f;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character .container-img-character:hover .card-content-info {
+  background-color: #a20f0f;
+  color: #000;
+}
+.container-main .comic-section .resultados-personajes .character-img-container .container-card-character .card-character:hover {
+  box-shadow: 5px 5px 10px -1px rgba(0, 0, 0, 0.66);
+  cursor: pointer;
 }
 .container-main .results-section {
   padding: 5% 0% 0% 0%;
@@ -264,7 +376,7 @@
 }
 .container-main .results-section .results .character-img-container .container-card-character .card-character {
   border: solid 2px #a20f0f;
-  width: 13.5em;
+  width: 14.5em;
 }
 .container-main .results-section .results .character-img-container .container-card-character .card-character .container-img-character {
   overflow: hidden;
@@ -272,16 +384,6 @@
 .container-main .results-section .results .character-img-container .container-card-character .card-character .container-img-character .character-thumbnail {
   height: 25vh;
   width: 100%;
-}
-.container-main .results-section .results .character-img-container .container-card-character .card-character .container-img-character .mas-info {
-  background-color: #b30909;
-  color: #fff;
-  margin: auto;
-  position: absolute;
-  bottom: 0.2%;
-  left: 5%;
-  border-radius: 100%;
-  font-size: 2em;
 }
 .container-main .results-section .results .character-img-container .container-card-character .card-character .container-img-character .card-content-info {
   background-color: #000;
@@ -304,6 +406,7 @@
   transform: scale(1.2);
   transition-duration: 0.8s;
   filter: grayscale(90%);
+  background-color: #a20f0f;
 }
 .container-main .results-section .results .character-img-container .container-card-character .card-character .container-img-character:hover .card-content-info {
   background-color: #a20f0f;
@@ -341,43 +444,6 @@
 .container-main .results-section .div-container-paginador .pagination .pagination-button:disabled {
   color: #757575;
   border-color: #757575;
-}
-.container-main .results-section .loader-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.6);
-  position: absolute;
-}
-.container-main .results-section .loader-container.hidden {
-  display: none;
-}
-.container-main .results-section .loader {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-}
-.container-main .results-section .loader:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #ed1d23;
-  border-color: #ed1d23 transparent #ed1d23 transparent;
-  animation: loader 1.2s linear infinite;
-}
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
