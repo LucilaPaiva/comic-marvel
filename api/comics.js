@@ -1,6 +1,7 @@
 // // luci
 const baseUrl = "https://gateway.marvel.com/v1/public/";
 const apiPublic = "9793363e7276e556c84635fef3aecb00";
+
 // // const apiPrivate = '70b432de62d5b48263eaf29757a150e30befce52';
 
 // // vero
@@ -11,5 +12,16 @@ const getComics = async () =>{
     const response = await fetch(`${baseUrl}/comics?apikey=${apiPublic}&offset=0&orderBy=title`);
     const data = await response.json()
     return data;
+}
 
+const getCharacters = async () =>{
+    const response = await fetch(`${baseUrl}/characters?apikey=${apiPublic}&offset=0&orderBy=name`);
+    const data = await response.json()
+    return data;
+}
+
+const getInfoComic = async () =>{
+    const response = await fetch(`${baseUrl}/comics?apikey=${apiPublic}&offset=0&orderBy=name`);
+    const data = await response.json()
+    return data;
 }

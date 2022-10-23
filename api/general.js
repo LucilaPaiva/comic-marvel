@@ -1,10 +1,10 @@
-// const selectSearchTipo = document.querySelector("#select-search-tipo");
+const selectSearchTipo = document.querySelector("#select-search-tipo");
 // const loaderContainer = document.querySelector("#loader-container");
-// const resultsNumber = document.querySelector(".results-number");
+const resultsNumber = document.querySelector(".results-number");
 // const results = document.querySelector("#results");
-// const resultsSection = document.querySelector(".results-section");
+const resultsSection = document.querySelector(".results-section");
 // const characterSection = document.querySelector(".character-section");
-// const searchButton = document.querySelector(".search-button");
+const searchButton = document.querySelector(".search-button");
 // const comicImg = document.querySelector(".comic-img");
 // const comicTitle = document.querySelector(".comic-title");
 // const comicPublished = document.querySelector(".comic-published");
@@ -32,21 +32,21 @@
 
 // // // *********** Botón modo claro/modo oscuro ****************
 
-// const toggle = document.getElementById("toggle");
-// const main = document.getElementById("main");
-// const iconSearch = document.getElementById("icon-search");
+const toggle = document.getElementById("toggle");
+const main = document.getElementById("main");
+const iconSearch = document.getElementById("icon-search");
 
-// toggle.addEventListener("change", () => {
-//   if (toggle.checked) {
-//     main.classList.add("modo-oscuro");
-//     main.classList.remove("modo-claro");
-//     iconSearch.style.color = "#fff";
-//   } else {
-//     main.classList.add("modo-claro");
-//     main.classList.remove("modo-oscuro");
-//     iconSearch.style.color = "#000";
-//   }
-// });
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    main.classList.add("modo-oscuro");
+    main.classList.remove("modo-claro");
+    iconSearch.style.color = "#fff";
+  } else {
+    main.classList.add("modo-claro");
+    main.classList.remove("modo-oscuro");
+    iconSearch.style.color = "#000";
+  }
+});
 
 
 
@@ -56,7 +56,7 @@
 
 // const baseUrl = "https://gateway.marvel.com/v1/public/";
 // let offset = 0;
-// let resultCount = 0;
+
 
 // const getSearchParams = (isSearch) => {
 //   let url = baseUrl;
@@ -85,10 +85,6 @@
 //   return url;
 // };
 
-// const updateResultsCount = (count) => {
-//   resultsNumber.innerHTML = count;
-//   resultCount = count;
-// };
 
 // const fectchUrl = async (url) => {
 //   const response = await fetch(url);
@@ -157,9 +153,12 @@
 //     charactersCardComic(comicId)
 // };
 
-// const hiddenComics = () => {
-//   resultsSection.classList.add('hidden')
-// }
+const hiddenComics = () => {
+  resultsSection.classList.add('hidden')
+}
+const showComics = () => {
+    resultsSection.classList.remove('hidden')
+  }
 
 // const showDetailComic = () => {
 //   comicSection.classList.remove('hidden')
@@ -253,22 +252,22 @@
 //       fetchCharacter(character.id);
 //     };
 
-//     charactersCard.innerHTML = `
-//     <div class="character-img-container">
-//       <div class="col s12 m12 container-card-character">
-//         <div class="card card-character">
-//           <div class="card-image container-img-character">
-//             <img src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
-//             <div class="card-content-info">
-//                 <div class="contein-info">
-//                   <h3 class="title-character">${character.name}</h3>
-//                 </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>`;
-//     results.append(charactersCard);
+    // charactersCard.innerHTML = `
+    // <div class="character-img-container">
+    //   <div class="col s12 m12 container-card-character">
+    //     <div class="card card-character">
+    //       <div class="card-image container-img-character">
+    //         <img src="${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}" alt=${character.name} class="character-thumbnail">
+    //         <div class="card-content-info">
+    //             <div class="contein-info">
+    //               <h3 class="title-character">${character.name}</h3>
+    //             </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>`;
+    // results.append(charactersCard);
 //   }
 // };
 
@@ -289,32 +288,32 @@
 //   hiddenComics()
 // }
 
-// const clearResults = () => (results.innerHTML = "");
+const clearResults = () => (results.innerHTML = "");
 
 // const showLoader  = () => loaderContainer.style.display="block";
 
 // const hideLoader = () => loaderContainer.style.display="none";
 
 
-// const search = () => {
-//   showLoader()
-//   if (selectSearchTipo.value === "comics") {
-//     fectchComics();
-//   }
-//   if (selectSearchTipo.value === "characters") {
-//     fectchCharacters();
-//   }
-// };
+const search = () => {
+  // showLoader()
+  if (selectSearchTipo.value === "comics") {
+    loadComics()
+  }
+  if (selectSearchTipo.value === "characters") {
+    loadCharacters();
+  }
+};
 
-// const inicio = () => {
-//   searchButton.addEventListener("click", () => {
-//     search();
-//   });
-//   search();
-// };
+const inicio = () => {
+  searchButton.addEventListener("click", () => {
+    search();
+  });
+  search();
+};
 
-// $(document).ready(function () {
-//   $("select").formSelect();
-// });
+$(document).ready(function () {
+  $("select").formSelect();
+});
 
-// window.onload = inicio;
+window.onload = inicio;
