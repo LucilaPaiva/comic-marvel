@@ -4,9 +4,13 @@ let resultCount = 0;
 
 const getParams = () => {
   const params = new URLSearchParams(window.location.search);
-
   return params;
 };
+
+// const getParam = () => {
+//   const param = new URLSearchParams(window.location.search);
+//   return param;
+// };
 
 const loadComics = async () => {
   const params = getParams();
@@ -47,7 +51,8 @@ const updateResultsCount = (count) => {
 };
 
 // const loadCharacters = async () =>{
-//     const charactersResponse = await getCharacters();
+//     const params = getParams();
+//     const charactersResponse = await getCharacters(params.get('offset') || 0, params.get("tipo") || "name");
 //     const data = charactersResponse.data
 //     const characters = data.results
 //     clearResults();
@@ -85,6 +90,12 @@ formSearch.addEventListener("submit", (e) => {
   params.set("order", orderBy);
   params.set('offset', 20);
   window.location.href = window.location.pathname + "?" + params.toString();
+
+  // const tipoBy = e.target['tipo-by'].value;
+  // const param = new URLSearchParams(window.location.search);
+  // params.set('tipo', tipoBy);
+  // params.set('offset', 20);
+  // window.location.href = window.location.pathname + "?" + params.toString();
 
   // const searchTipo =
   //   e.target['select-search-tipo'].value
