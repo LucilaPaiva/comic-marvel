@@ -4,7 +4,7 @@ const resultsNumber = document.querySelector(".results-number");
 // const results = document.querySelector("#results");
 const resultsSection = document.querySelector(".results-section");
 // const characterSection = document.querySelector(".character-section");
-const searchButton = document.querySelector(".search-button");
+
 // const comicImg = document.querySelector(".comic-img");
 // const comicTitle = document.querySelector(".comic-title");
 // const comicPublished = document.querySelector(".comic-published");
@@ -295,25 +295,25 @@ const clearResults = () => (results.innerHTML = "");
 // const hideLoader = () => loaderContainer.style.display="none";
 
 
-const search = () => {
-  // showLoader()
-  if (selectSearchTipo.value === "comics") {
-    loadComics()
-  }
-  if (selectSearchTipo.value === "characters") {
-    loadCharacters();
-  }
-};
+// const search = () => {
+//   // showLoader()
+//   if (selectSearchTipo.value === "comics") {
+//     loadComics()
+//   }
+//   if (selectSearchTipo.value === "characters") {
+//     loadCharacters();
+//   }
+// };
 
-const inicio = () => {
-  searchButton.addEventListener("click", () => {
-    search();
-  });
-  search();
-};
+// const inicio = () => {
+//   searchButton.addEventListener("click", () => {
+//     search();
+//   });
+//   search();
+// };
 
 $(document).ready(function () {
   $("select").formSelect();
 });
 
-window.onload = inicio;
+//window.onload = inicio;
