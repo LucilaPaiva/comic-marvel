@@ -251,6 +251,7 @@
             flex-wrap: wrap;
             width: 100%;
             margin-top: 5%;
+            justify-content: center;
 
             .comic {
                 width: 18%;
@@ -295,15 +296,18 @@
             .comic-img-container {
                 flex-grow: 1;
             }
-
+            
+            
+            
             .character-img-container{
                 margin: 0 10px 40px;
 
                 .container-card-character {
-
+                    
                     .card-character {
                         border: solid 2px #a20f0f;
                         width: 12.5em;
+                        
         
                         .container-img-character {
                             overflow: hidden;
