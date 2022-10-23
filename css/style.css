@@ -341,6 +341,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin-top: 5%;
+  justify-content: center;
 }
 .container-main .results-section .results .comic {
   width: 18%;
