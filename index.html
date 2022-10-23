@@ -35,18 +35,14 @@
         <div class="search-title">
             <h2>Busqueda</h2>
         </div>
-        <div class="my-nav-container">
-            <div class="nav-wrapper my-nav-search">
-                <form class="container-search-form">
-                    <div class="input-field my-search">
-                        <i class="material-icons"><i class="material-icons search-icon" id="icon-search">search</i></i>
-                        <input id="search" placeholder="Ingresá tu búsqueda" type="search" required class="input-search">
-                        <label class="label-icon label-search-icon" for="search">
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="my-nav-selects">
+        
+            <form id="form-search" class="my-nav-selects">
+                <div class="input-field my-search">
+                    <i class="material-icons"><i class="material-icons search-icon" id="icon-search">search</i></i>
+                    <input id="search" placeholder="Ingresá tu búsqueda" type="search" class="input-search">
+                    <label class="label-icon label-search-icon" for="search">
+                    </label>
+                </div>
                 <div class="select-tipo">
                     <label class="label-select-tipo color">Tipo</label>
                     <select class="select-search" id="select-search-tipo">
@@ -56,17 +52,18 @@
                 </div>
                 <div class="select-orden">
                     <label class="label-select-orden">Orden</label>
-                    <select class="select-search">
-                        <option value="a-z" selected>A/Z</option>
+                    <select name="order-by" id="order-by" class="select-search">
+                        <option value="a-z">A/Z</option>
                         <option value="z-a">Z/A</option>
-                        <option value="mas-nuevo" selected>Más Nuevo</option>
+                        <option value="mas-nuevo">Más Nuevo</option>
                         <option value="mas-viejo">Más Viejo</option>
-                    </select>                   
+                    </select> 
+                    <button id="search-button" class="search-button search-button--1">Buscar</button>                  
                 </div>
-            </div>
-            <div class="container-button create-button">
-                <button type="button" class="search-button search-button--1">Buscar</button>
-            </div>
+            </form>
+            <!-- <div class="container-button create-button">
+                <button id="search-button" class="search-button search-button--1">Buscar</button>
+            </div> -->
         </div>
 
         <section class="comic-section hidden">
