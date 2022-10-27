@@ -288,7 +288,7 @@ const showComics = () => {
 //   hiddenComics()
 // }
 
-const clearResults = () => (results.innerHTML = "");
+// const clearResults = () => (results.innerHTML = "");
 
 // const showLoader  = () => loaderContainer.style.display="block";
 
