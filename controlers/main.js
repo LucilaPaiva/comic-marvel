@@ -89,23 +89,30 @@ formSearch.addEventListener("submit", (e) => {
   const params = new URLSearchParams(window.location.search);
   params.set("order", orderBy);
   params.set('offset', 20);
-  // window.location.href = window.location.pathname + "?" + params.toString();
+  window.location = window.location.pathname + "?" + params.toString();
 
   const tipoBy = e.target['tipo-by'].value;
-  // const param = new URLSearchParams(window.location.search);
-  // params.set('tipo', tipoBy);
-  // params.set('offset', 20);
-  // window.location.href = window.location.pathname + "?" + params.toString();
-
-  if (tipoBy === 'characters') {
-    resultsCharacters.style.display= 'flex';
-    resultsComics.style.display= 'none'
-  }
-
-  // const searchTipo =
-  //   e.target['select-search-tipo'].value
-  //   params.set('search', searchTipo)
-
-  // params.get()
-  // params.toString()
+  // if (tipoBy === 'characters') {
+  //   resultsCharacters.style.display= 'flex';
+  //   resultsComics.style.display= 'none'
+  // }
 });
+
+
+// const crearOptions = () => {
+//   if (tipoBy === 'comics'){
+//     orderBy.innerHTML= `
+//     <option value="title">A/Z</option>
+//     <option value="-title">Z/A</option>
+//     <option value="-focDate">Más Nuevo</option>
+//     <option value="focDate">Más Viejo</option>`
+//     alert('hola')
+//   }
+//   if (tipoBy === 'charaters'){
+//     orderBy.innerHTML= `
+//     <option value="title">A/Z</option>
+//     <option value="-title">Z/A</option>`
+//   }
+// }
+
+// crearOptions()
