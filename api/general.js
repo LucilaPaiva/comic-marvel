@@ -1,8 +1,8 @@
-const selectSearchTipo = document.querySelector("#select-search-tipo");
+//const selectSearchTipo = document.querySelector("#select-search-tipo");
 // const loaderContainer = document.querySelector("#loader-container");
-const resultsNumber = document.querySelector(".results-number");
+//const resultsNumber = document.querySelector(".results-number");
 // const results = document.querySelector("#results");
-const resultsSection = document.querySelector(".results-section");
+//const resultsSection = document.querySelector(".results-section");
 // const characterSection = document.querySelector(".character-section");
 
 // const comicImg = document.querySelector(".comic-img");
@@ -32,21 +32,21 @@ const resultsSection = document.querySelector(".results-section");
 
 // // // *********** Botón modo claro/modo oscuro ****************
 
-const toggle = document.getElementById("toggle");
-const main = document.getElementById("main");
-const iconSearch = document.getElementById("icon-search");
+// const toggle = document.getElementById("toggle");
+// const main = document.getElementById("main");
+// const iconSearch = document.getElementById("icon-search");
 
-toggle.addEventListener("change", () => {
-  if (toggle.checked) {
-    main.classList.add("modo-oscuro");
-    main.classList.remove("modo-claro");
-    iconSearch.style.color = "#fff";
-  } else {
-    main.classList.add("modo-claro");
-    main.classList.remove("modo-oscuro");
-    iconSearch.style.color = "#000";
-  }
-});
+// toggle.addEventListener("change", () => {
+//   if (toggle.checked) {
+//     main.classList.add("modo-oscuro");
+//     main.classList.remove("modo-claro");
+//     iconSearch.style.color = "#fff";
+//   } else {
+//     main.classList.add("modo-claro");
+//     main.classList.remove("modo-oscuro");
+//     iconSearch.style.color = "#000";
+//   }
+// });
 
 
 
@@ -153,12 +153,12 @@ toggle.addEventListener("change", () => {
 //     charactersCardComic(comicId)
 // };
 
-const hiddenComics = () => {
-  resultsSection.classList.add('hidden')
-}
-const showComics = () => {
-    resultsSection.classList.remove('hidden')
-  }
+// const hiddenComics = () => {
+//   resultsSection.classList.add('hidden')
+// }
+// const showComics = () => {
+//     resultsSection.classList.remove('hidden')
+//   }
 
 // const showDetailComic = () => {
 //   comicSection.classList.remove('hidden')
@@ -312,8 +312,8 @@ const showComics = () => {
 //   search();
 // };
 
-$(document).ready(function () {
-  $("select").formSelect();
-});
+// $(document).ready(function () {
+//   $("select").formSelect();
+// });
 
 //window.onload = inicio;
