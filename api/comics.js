@@ -16,12 +16,13 @@ const getComics = async (page, orderBy) =>{
     return data;
 };
 
-// const getCharacters = async (offset = 0, tipoBy ='name') =>{
-//     const response = await fetch(`${baseUrl}/characters?apikey=${apiKey}&offset=${offset}&orderBy=${tipoBy}`);
-//     const data = await response.json()
-//     console.log(data);
-//     return data;
-// };
+const getCharacters = async (page, tipoBy) =>{
+    const offset = (page - 1) * 20;
+    const response = await fetch(`${baseUrl}/characters?apikey=${apiKey}&offset=${offset}&orderBy=${tipoBy}`);
+    const data = await response.json()
+    
+    return data;
+};
 
 // const getInfoComic = async () =>{
 //     const response = await fetch(`${baseUrl}/comics?apikey=${apiKey}&offset=0&orderBy=name`);
