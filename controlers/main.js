@@ -1,6 +1,23 @@
-const resultsComics = document.getElementById("results-comics");
-const resultsCharacters = document.getElementById("results-characters");
-resultsCharacters.style.display = "none";
+const resultsElement = document.getElementById("results");
+const resultsNumber = document.querySelector(".results-number");
+
+// // // *********** Botón modo claro/modo oscuro ****************
+
+const toggle = document.getElementById("toggle");
+const main = document.getElementById("main");
+const iconSearch = document.getElementById("icon-search");
+
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    main.classList.add("modo-oscuro");
+    main.classList.remove("modo-claro");
+    iconSearch.style.color = "#fff";
+  } else {
+    main.classList.add("modo-claro");
+    main.classList.remove("modo-oscuro");
+    iconSearch.style.color = "#000";
+  }
+});
 
 let resultCount = 0;
 
@@ -17,6 +34,8 @@ const getParams = () => {
 const loadComics = async () => {
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
+  //const order = params.get('title')
+  //const tipo = params.get('comics')
 
   const comicsRsponse = await getComics(page, "title");
 
@@ -31,7 +50,7 @@ const loadComics = async () => {
                                     <img src="${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}" alt="${comic.title}" class="comic-thumbnail" />
                                 </div>
                                 <p class="comic-title">${comic.title}</p>`;
-    resultsComics.append(comicCard);
+    resultsElement.append(comicCard);
     updateResultsCount(total);
   });
 
@@ -48,8 +67,6 @@ const loadComics = async () => {
 
 // loadInfoComics()
 
-
-
 const updateResultsCount = (count) => {
   resultsNumber.innerHTML = count;
   resultCount = count;
@@ -58,6 +75,8 @@ const updateResultsCount = (count) => {
 const loadCharacters = async () => {
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
+  //const order = params.get('name')
+  //const tipo = params.get('characters')
   const charactersResponse = await getCharacters(page, "name");
   const data = charactersResponse.data;
   const characters = data.results;
@@ -80,12 +99,89 @@ const loadCharacters = async () => {
             </div>
           </div>
         </div>`;
-    resultsCharacters.append(charactersCard);
+    resultsElement.append(charactersCard);
   });
   renderPagination(Math.ceil(data.total / 20));
 };
 
+const containerSelectTipo = document.getElementById("select-tipo");
+const selectOrderContainer = document.getElementById("select-order");
 const formSearch = document.getElementById("form-search");
+//const containerTipo = document.createElement("div");
+//containerTipo.setAttribute("id", "container-tipo");
+
+//cambiar esto en el sass
+
+//containerTipo.classList.add("select-tipo");
+const labelTipo = document.createElement("label");
+const labelOrder = document.createElement("label");
+const optionComic = document.createElement('option');
+const optionCharacter = document.createElement('option');
+
+const optionAz = document.createElement('option');
+const optionZa = document.createElement('option');
+const optionNew = document.createElement('option');
+const optionOld = document.createElement('option');
+
+
+labelTipo.classList.add("label-select-tipo");
+labelOrder.classList.add("label-select-orden");
+
+
+
+const labelText = document.createTextNode("Tipo");
+const labelOrderText = document.createTextNode("Orden");
+const comicText = document.createTextNode("Comic");
+const characterText = document.createTextNode("Personajes");
+
+const aZText = document.createTextNode("A/Z");
+const zAText = document.createTextNode("Z/A");
+const newText = document.createTextNode("Más nuevo");
+const oldText = document.createTextNode("Más antiguo");
+
+const selectTipo = document.createElement("select");
+const selectOrder = document.createElement("select");
+
+
+selectTipo.setAttribute("id", "tipo-by");
+selectOrder.setAttribute("id", "order-by")
+
+selectTipo.classList.add("select-search-tipo");
+selectOrder.classList.add("select-search-orden");
+//formSearch.appendChild(containerTipo);
+//containerTipo.appendChild(containerSelectTipo);
+containerSelectTipo.appendChild(labelTipo);
+selectOrderContainer.appendChild(labelOrder);
+
+labelTipo.appendChild(labelText);
+labelOrder.appendChild(labelOrderText);
+
+containerSelectTipo.appendChild(selectTipo);
+selectOrderContainer.appendChild(selectOrder);
+
+selectTipo.appendChild(optionComic);
+selectTipo.appendChild(optionCharacter);
+
+
+selectOrder.appendChild(optionAz);
+selectOrder.appendChild(optionZa);
+selectOrder.appendChild(optionNew);
+selectOrder.appendChild(optionOld);
+
+optionComic.appendChild(comicText);
+optionCharacter.appendChild(characterText);
+optionAz.appendChild(aZText);
+optionZa.appendChild(zAText);
+optionNew.appendChild(newText);
+optionOld.appendChild(oldText);
+
+optionComic.setAttribute("value","comics");
+optionCharacter.setAttribute("value","characters");
+optionAz.setAttribute("value","title");
+optionZa.setAttribute("value","-title");
+optionNew.setAttribute("value","-focDate");
+optionOld.setAttribute("value","focDate");
+
 
 formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -94,10 +190,9 @@ formSearch.addEventListener("submit", (e) => {
   const params = new URLSearchParams(window.location.search);
   params.set("order", orderBy);
   params.set("offset", 20);
-  params.set('tipo', tipoBy)
+  params.set("tipo", tipoBy);
   window.location = window.location.pathname + "?" + params.toString();
 
-  
   if (tipoBy === "characters") {
     resultsCharacters.style.display = "flex";
     resultsComics.style.display = "none";
@@ -106,7 +201,6 @@ formSearch.addEventListener("submit", (e) => {
     resultsCharacters.style.display = "none";
     resultsComics.style.display = "flex";
   }
-  
 });
 
 //****************** PAGINADOR *****************
@@ -178,8 +272,13 @@ const renderPagination = (totalPages) => {
 };
 
 const init = () => {
-  loadComics();
- loadCharacters();
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("tipo") === "characters") {
+    loadCharacters();
+  } else {
+    loadComics();
+  }
+  //document.getElementById('order-by').setAttribute('selected',params.get('order'))
 };
 
 init();

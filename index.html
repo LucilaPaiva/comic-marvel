@@ -9,7 +9,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Varela+Round&display=swap"
@@ -48,27 +48,25 @@
                 <label class="label-icon label-search-icon" for="search">
                 </label>
             </div>
-            <div class="select-tipo">
-                <label class="label-select-tipo color">Tipo</label>
+            <div id= "select-tipo"class="select-tipo">
+                <!-- <label class="label-select-tipo color">Tipo</label>
                 <select class="select-search-tipo" id="tipo-by" name="tipo-by">
                     <option value="comics">Comic</option>
                     <option value="characters">Personajes</option>
-                </select>
+                </select> -->
             </div>
-            <div class="select-orden">
-                <label class="label-select-orden">Orden</label>
+            <div id= "select-order" class="select-orden">
+                <!-- <label class="label-select-orden">Orden</label>
                 <select name="order-by" id="order-by" class="select-search-orden">
                     <option value="title">A/Z</option>
                     <option value="-title">Z/A</option>
                     <option value="-focDate">Más Nuevo</option>
                     <option value="focDate">Más Viejo</option>
-                </select>
+                </select> -->
             </div>
             <button id="search-button" class="search-button search-button--1">Buscar</button>
         </form>
-        <!-- <div class="container-button create-button">
-                <button id="search-button" class="search-button search-button--1">Buscar</button>
-            </div> -->
+    
         </div>
 
         <section class="comic-section hidden">
@@ -95,32 +93,13 @@
                     <span class="results-number">0</span> RESULTADOS
                 </p>
             </div>
-            <div class="results-comics" id="results-comics"></div>
-            <div class="results-characters" id="results-characters"></div>
-            <div class="div-container-paginador">
-                <!-- <div class="container-paginador">
-                    <p>Pagina Actual: <span id="pagina-actual"></span></p>
-                    <p>Total de paginas: <span id="total-paginas"></span></p>
-                </div> -->
+            <div class="results" id="results"></div>
+            
 
                 <div id= "container-pagination" class="pagination">
-                    <!-- <button type="button" id="first-page" class="first-page pagination-button"
-                        aria-label="Página previa">
-                        <i class="fas fa-angle-double-left" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="previus-page" class="previous-page pagination-button"
-                        aria-label="Página Anterior">
-                        <i class="fas fa-angle-left" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="next-page" class="next-page pagination-button"
-                        aria-label="Siguiente Página">
-                        <i class="fas fa-angle-right" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="last-page" class="last-page pagination-button" aria-label="Última página">
-                        <i class="fas fa-angle-double-right" aria-hidden="true"></i>
-                    </button> -->
+                 
                 </div>
-            </div>
+            
         </section>
     </main>
 
@@ -153,14 +132,13 @@
         </div>
     </div> -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
     <script src="./api/comics.js"></script>
     <script src="./controlers/main.js"></script>
     <script src="./api/characters.js"></script>
-    <script src="./api/general.js"></script>
 </body>
 
 </html>
