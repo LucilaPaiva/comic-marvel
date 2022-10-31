@@ -67,11 +67,6 @@ const loadComics = async () => {
 
 // loadInfoComics()
 
-const updateResultsCount = (count) => {
-  resultsNumber.innerHTML = count;
-  resultCount = count;
-};
-
 const loadCharacters = async () => {
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
@@ -80,6 +75,7 @@ const loadCharacters = async () => {
   const charactersResponse = await getCharacters(page, "name");
   const data = charactersResponse.data;
   const characters = data.results;
+  const total = data.total;
 
   characters.forEach((character) => {
     const charactersCard = document.createElement("div");
@@ -100,8 +96,14 @@ const loadCharacters = async () => {
           </div>
         </div>`;
     resultsElement.append(charactersCard);
+    updateResultsCount(total)
   });
   renderPagination(Math.ceil(data.total / 20));
+};
+
+const updateResultsCount = (count) => {
+  resultsNumber.innerHTML = count;
+  resultCount = count;
 };
 
 const containerSelectTipo = document.getElementById("select-tipo");
@@ -182,6 +184,7 @@ optionZa.setAttribute("value","-title");
 optionNew.setAttribute("value","-focDate");
 optionOld.setAttribute("value","focDate");
 
+///// funcion para los selects ///////
 
 formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -192,15 +195,6 @@ formSearch.addEventListener("submit", (e) => {
   params.set("offset", 20);
   params.set("tipo", tipoBy);
   window.location = window.location.pathname + "?" + params.toString();
-
-  if (tipoBy === "characters") {
-    resultsCharacters.style.display = "flex";
-    resultsComics.style.display = "none";
-  }
-  if (tipoBy === "comics") {
-    resultsCharacters.style.display = "none";
-    resultsComics.style.display = "flex";
-  }
 });
 
 //****************** PAGINADOR *****************
@@ -282,6 +276,10 @@ const init = () => {
 };
 
 init();
+
+const inputSearch = document.getElementById('search');
+const valueInputSearch = inputSearch.value;
+console.log(valueInputSearch);
 
 // const crearOptions = () => {
 //   if (tipoBy === 'comics'){

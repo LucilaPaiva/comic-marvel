@@ -1,7 +1,6 @@
 .container-footer {
     border-top: solid 2px #de2e03;
     width: 100%;
-    padding: 3%;
     background-color: #020202;
     color: #fff;
     text-align: center;
@@ -9,11 +8,10 @@
 
     .text-footer {
         width: 100%;
-        font-size: 1.2em;
+        font-size: 1em;
         font-family: "Bangers", cursive;
-        margin: 0 auto;
+        padding-top: 2%;
     }
-
 
     .container-iconos {
         height: 50%;
@@ -21,9 +19,9 @@
         justify-content: space-around;
         align-items: center;
         transition: 2s;
+        padding: 5%;
 
         .iconos-footer {
-            padding: 1%;
 
             .img-footer {
                 width: 25%;
@@ -34,4 +32,12 @@
             }
         }
     }
+
+    @media screen and (max-width: 680px) and (min-width: 200px) {
+        .container-iconos{
+            background-color: #de2e03;
+            
+        }
+    }
 }
+
