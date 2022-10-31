@@ -277,9 +277,9 @@ const init = () => {
 
 init();
 
-const inputSearch = document.getElementById('search');
-const valueInputSearch = inputSearch.value;
-console.log(valueInputSearch);
+// const inputSearch = document.getElementById('search');
+// const valueInputSearch = inputSearch.value;
+// console.log(valueInputSearch);
 
 // const crearOptions = () => {
 //   if (tipoBy === 'comics'){

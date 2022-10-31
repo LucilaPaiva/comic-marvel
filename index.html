@@ -22,14 +22,12 @@
 <body>
     <header class="header">
         <div class="logo-container">
-            <div class="switch container-switch">
-                <label class="label-switch">
-                    <input type="checkbox" id="toggle" class="offscreen">
-                    <span class="lever"></span>
-                </label>
+            <div class="container-switch">
+                <input type="checkbox" id="toggle" class="checkbox">
+                <label class="label-switch" for="toggle"></label>
             </div>
             <div class="text-logo">
-                <h1 class="title-logo">ADA COMIC</h1>
+                <p class="title-logo">ADA COMIC</p>
             </div>
         </div>
     </header>
@@ -48,21 +46,23 @@
                         id="icon-search">search</i></i>
                 <input id="search" placeholder="Ingresá tu búsqueda" type="search" class="input-search">
             </div>
-            <div id="select-tipo" class="select-tipo">
-                <!-- <label class="label-select-tipo color">Tipo</label>
+            <div class="container-selects">
+                <div id="select-tipo" class="select-tipo">
+                    <!-- <label class="label-select-tipo color">Tipo</label>
                 <select class="select-search-tipo" id="tipo-by" name="tipo-by">
                     <option value="comics">Comic</option>
                     <option value="characters">Personajes</option>
                 </select> -->
-            </div>
-            <div id="select-order" class="select-orden">
-                <!-- <label class="label-select-orden">Orden</label>
+                </div>
+                <div id="select-order" class="select-orden">
+                    <!-- <label class="label-select-orden">Orden</label>
                 <select name="order-by" id="order-by" class="select-search-orden">
                     <option value="title">A/Z</option>
                     <option value="-title">Z/A</option>
                     <option value="-focDate">Más Nuevo</option>
                     <option value="focDate">Más Viejo</option>
                 </select> -->
+                </div>
             </div>
             <button id="search-button" class="search-button search-button--1">Buscar</button>
         </form>
@@ -88,10 +88,10 @@
 
         <section class="results-section">
             <div class="title-results">
-                <h4 class="results-title">Resultados</h4>
-                <p class="results-count">
-                    <span class="results-number">0</span> RESULTADOS
-                </p>
+                <h3 class="results-title">Resultados</h3>
+                <div class="results-count">
+                    <h6 class="results-number">0</h6> RESULTADOS
+                </div>
             </div>
             <div class="results" id="results"></div>
             <div id="container-pagination" class="container-pagination"></div>
@@ -101,15 +101,9 @@
     <footer class="container-footer">
         <div class="text-footer">Hecho por Vero y Lucila</div>
         <div class="container-iconos">
-            <!-- <div class="iconos-footer">
-                <img class="img-footer" src="./imagenes/natasha.png">
-            </div> -->
             <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/gamora.png">
             </div>
-            <!-- <div class="iconos-footer">
-                <img class="img-footer" src="./imagenes/tony.png">
-            </div> -->
             <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/wanda.png">
             </div>
@@ -118,14 +112,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- <div id="loader-container" class="loader-container">
-        <div class="loader">
-            <div class="espera1 div"></div>
-            <div class="espera2 div"></div>
-            <div class="espera3 div"></div>
-        </div>
-    </div> -->
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

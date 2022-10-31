@@ -5,8 +5,22 @@
     background-size: 110% 100%;
 }
 
+@media screen and (max-width: 680px) and (min-width: 200px) {
+    .modo-oscuro {
+        background-image: url(https://i.pinimg.com/originals/cc/6b/f7/cc6bf799c7465b82e34ef082e16e94fc.jpg);
+        background-repeat: no-repeat;
+        background-size: 110% 100%;
+    }
+}
+
 .modo-claro {
     background-image: url(https://images6.alphacoders.com/872/872239.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+@media screen and (max-width: 680px) and (min-width: 200px) {
+    .modo-claro {
+        background-image: url(https://i.pinimg.com/236x/26/64/b4/2664b426571e0aa2f5e45085163d2472.jpg);
+    }
 }
