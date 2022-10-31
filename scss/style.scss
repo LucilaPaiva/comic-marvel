@@ -512,11 +512,19 @@
         .results-section {
             width: 95%;
         }
+
+        .container-pagination{
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        }
     }
 
     @media screen and (max-width: 376px) and (min-width: 200px) {
         .results-section {
             width: 95%;
+        }
+
+        .container-pagination{
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         }
     }
 }
