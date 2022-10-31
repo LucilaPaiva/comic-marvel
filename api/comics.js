@@ -1,6 +1,6 @@
 // // luci
 const baseUrl = "https://gateway.marvel.com/v1/public";
-const apiKey = "d90ce40c311fdc6a575a0346b72d9613";
+const apiKey = "9793363e7276e556c84635fef3aecb00";
 
 
 // // const apiPrivate = '70b432de62d5b48263eaf29757a150e30befce52';
