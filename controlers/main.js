@@ -68,6 +68,7 @@ const loadComics = async () => {
 // loadInfoComics()
 
 const loadCharacters = async () => {
+  console.log('ejecute loadCharaters');
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
   //const order = params.get('name')
@@ -265,14 +266,32 @@ const renderPagination = (totalPages) => {
   containerPagination.appendChild(pagination);
 };
 
+
+
 const init = () => {
+  const orderBy = document.getElementById('order-by')
+  console.log(orderBy);
   const params = new URLSearchParams(window.location.search);
   if (params.get("tipo") === "characters") {
+    optionCharacter.setAttribute('selected', true)
     loadCharacters();
   } else {
+    optionComic.setAttribute('selected', true)
     loadComics();
   }
-  //document.getElementById('order-by').setAttribute('selected',params.get('order'))
+  if(params.get('order') === 'title'){
+    optionAz.setAttribute('selected', true)
+  }
+  if(params.get('order') === '-title'){
+    optionZa.setAttribute('selected', true)
+  }
+  if(params.get('order') === '-focDate'){
+    optionNew.setAttribute('selected', true)
+  }
+  if(params.get('order') === 'focDate'){
+    optionOld.setAttribute('selected', true)
+  }
+  // orderBy.setAttribute('selected',params.get('order'))
 };
 
 init();
