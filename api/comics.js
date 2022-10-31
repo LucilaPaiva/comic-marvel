@@ -25,7 +25,7 @@ const getCharacters = async (page, tipoBy) =>{
 };
 
 // const getInfoComic = async () =>{
-//     const response = await fetch(`${baseUrl}/comics?apikey=${apiKey}&offset=0&orderBy=name`);
+//     const response = await fetch(`${baseUrl}/comics?apikey=${apiKey}&offset=0&orderBy=title`);
 //     const data = await response.json()
 //     return data;
 // }

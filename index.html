@@ -32,30 +32,30 @@
                 <h1 class="title-logo">ADA COMIC</h1>
             </div>
         </div>
-        <div class="container-banner">
-            <img class="img" src="./imagenes/banne2.jpg">
-        </div>
     </header>
+    <div class="container-banner">
+        <img class="img" src="./imagenes/banne2.jpg">
+    </div>
     <main class="container-main modo-claro" id="main">
         <div class="search-title">
             <h2>Busqueda</h2>
         </div>
 
         <form id="form-search" class="my-nav-selects">
-            <div class="input-field my-search">
-                <i class="material-icons icon-search"><i class="material-icons search-icon" id="icon-search">search</i></i>
+            <div class="my-search">
+                <label class="label-icon label-search-icon" for="search"></label>
+                <i class="material-icons icon-search"><i class="material-icons search-icon"
+                        id="icon-search">search</i></i>
                 <input id="search" placeholder="Ingresá tu búsqueda" type="search" class="input-search">
-                <label class="label-icon label-search-icon" for="search">
-                </label>
             </div>
-            <div id= "select-tipo"class="select-tipo">
+            <div id="select-tipo" class="select-tipo">
                 <!-- <label class="label-select-tipo color">Tipo</label>
                 <select class="select-search-tipo" id="tipo-by" name="tipo-by">
                     <option value="comics">Comic</option>
                     <option value="characters">Personajes</option>
                 </select> -->
             </div>
-            <div id= "select-order" class="select-orden">
+            <div id="select-order" class="select-orden">
                 <!-- <label class="label-select-orden">Orden</label>
                 <select name="order-by" id="order-by" class="select-search-orden">
                     <option value="title">A/Z</option>
@@ -66,11 +66,11 @@
             </div>
             <button id="search-button" class="search-button search-button--1">Buscar</button>
         </form>
-    
+
         </div>
 
-        <section class="comic-section hidden">
-            <div class="container-img-description">
+        <section class="comic-detail hidden" id="comic-detail">
+            <!-- <div class="container-img-description">
                 <img src="" class="comic-img">
                 <div class="comic-details hidden">
                     <h4 class="comic-title"></h4>
@@ -80,7 +80,7 @@
                     <p class="comic-writers"></p>
                     <h5>Descripción:</h5>
                     <p class="comic-description"></p>
-                </div>
+                </div> -->
             </div>
             <div id="resultados-personajes" class="resultados-personajes">
             </div>
@@ -94,27 +94,22 @@
                 </p>
             </div>
             <div class="results" id="results"></div>
-            
-
-                <div id= "container-pagination" class="pagination">
-                 
-                </div>
-            
+            <div id="container-pagination" class="container-pagination"></div>
         </section>
     </main>
 
     <footer class="container-footer">
         <div class="text-footer">Hecho por Vero y Lucila</div>
         <div class="container-iconos">
-            <div class="iconos-footer">
+            <!-- <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/natasha.png">
-            </div>
+            </div> -->
             <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/gamora.png">
             </div>
-            <div class="iconos-footer">
+            <!-- <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/tony.png">
-            </div>
+            </div> -->
             <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/wanda.png">
             </div>
