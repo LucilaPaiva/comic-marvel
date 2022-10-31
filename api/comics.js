@@ -16,9 +16,9 @@ const getComics = async (page, orderBy) =>{
     return data;
 };
 
-const getCharacters = async (page, tipoBy) =>{
+const getCharacters = async (page, orderBy) =>{
     const offset = (page - 1) * 20;
-    const response = await fetch(`${baseUrl}/characters?apikey=${apiKey}&offset=${offset}&orderBy=${tipoBy}`);
+    const response = await fetch(`${baseUrl}/characters?apikey=${apiKey}&offset=${offset}&orderBy=${orderBy}`);
     const data = await response.json()
     
     return data;

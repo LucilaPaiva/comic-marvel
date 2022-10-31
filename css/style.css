@@ -23,6 +23,16 @@
   font-family: "Bangers", cursive;
   padding-top: 2%;
 }
+@media screen and (max-width: 680px) and (min-width: 200px) {
+  .container-footer .container-footer {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}
+@media screen and (max-width: 376px) and (min-width: 200px) {
+  .container-footer .container-footer {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}
 .container-footer .container-iconos {
   height: 50%;
   display: flex;
@@ -654,10 +664,16 @@
   .container-main .results-section {
     width: 95%;
   }
+  .container-main .container-pagination {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
 }
 @media screen and (max-width: 376px) and (min-width: 200px) {
   .container-main .results-section {
     width: 95%;
+  }
+  .container-main .container-pagination {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 }
 
