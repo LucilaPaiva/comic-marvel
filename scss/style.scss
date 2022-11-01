@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+body{
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
 .hidden {
     display: none;
 }
@@ -512,10 +516,6 @@
         .results-section {
             width: 95%;
         }
-
-        .container-pagination{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
     }
 
     @media screen and (max-width: 376px) and (min-width: 200px) {
@@ -523,9 +523,6 @@
             width: 95%;
         }
 
-        .container-pagination{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
     }
 }
 
