@@ -57,15 +57,45 @@ const loadComics = async () => {
   renderPagination(Math.ceil(data.total / 20));
 };
 
+//***********************  LOAD INFO COMIC *************
+
+//********** El crea los card dentro del forEach, ahi dentro luego del h2, crea un card.addEventListener para que escuche cada vez.
+//luego ver el index.html <h2>Acá debería mostrarse el comic seleccionado</h2> y debajo
+//<button id="">Back</button> // habría que agregar un boton back para volver atrás y ue se vuelvan a mostrar los comics
+// <div id="comic-detail" class ="d-none">
+//
+
+//  card.addEventListener('click', ()=>{
+//  loadInfoComic(comic);
+//results.classList.add('d-none'); 
+
+//})
+
 // const loadInfoComics = async () =>{
+//  const comicDetail = document.getelementById('comic-detail');
+// comicDetail.classList.remove("d-none");
+
+// const title = document.createElement('h3');
+//const text = document.createTextnode(comic.title);
+//const div  = document.createElement('div')
+//title.appendchild(text);
+
+//div.appendChild(document.createTextNode(comic.descriptions) // si tiene lo mostramos y sino mostrar vacío con una validación.
+//al mostrar deberíamos agregar también que se cargue la imagen.
+
+//comicDetail.appendChild(title);
+//comicDetail.appednchild(div);
+//
+
 //   const comicsResponse = await getComics();
 //   const data = comicsResponse.data;
 //   const comics = data.results;
 //   const detail = comics;
-
 // }
 
 // loadInfoComics()
+
+
 
 const loadCharacters = async () => {
   console.log('ejecute loadCharaters');
