@@ -19,7 +19,6 @@ body{
 
 .container-main {
     width: 100%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
 
     .search-title {
@@ -37,7 +36,7 @@ body{
         margin: auto;
         margin-bottom: 5%;
         margin-top: 3%;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
 
         .my-search {
             width: 40%;
@@ -498,7 +497,6 @@ body{
                 .btn {
                     width: 40px;
                     height: 40px;
-                    font-family: "Bangers", cursive;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -525,9 +523,3 @@ body{
 
     }
 }
-
-// @media screen and (max-width: 680px) and (min-width: 200px) {
-//     .container-main {
-//         background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIxjCE4QvqTQAnc5ddDPUaTosdT42w0dm7Q&usqp=CAU);
-//     }
-// }
