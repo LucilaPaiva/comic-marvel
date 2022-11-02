@@ -9,7 +9,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Varela+Round&display=swap"
@@ -22,57 +22,55 @@
 <body>
     <header class="header">
         <div class="logo-container">
-            <div class="switch container-switch">
-                <label class="label-switch">
-                    <input type="checkbox" id="toggle" class="offscreen">
-                    <span class="lever"></span>
-                </label>
+            <div class="container-switch">
+                <input type="checkbox" id="toggle" class="checkbox">
+                <label class="label-switch" for="toggle"></label>
             </div>
             <div class="text-logo">
-                <h1 class="title-logo">ADA COMIC</h1>
+                <p class="title-logo">ADA COMIC</p>
             </div>
         </div>
-        <div class="container-banner">
-            <img class="img" src="./imagenes/banne2.jpg">
-        </div>
     </header>
+    <div class="container-banner">
+        <img class="img" src="./imagenes/banne2.jpg">
+    </div>
     <main class="container-main modo-claro" id="main">
         <div class="search-title">
             <h2>Busqueda</h2>
         </div>
 
         <form id="form-search" class="my-nav-selects">
-            <div class="input-field my-search">
-                <i class="material-icons icon-search"><i class="material-icons search-icon" id="icon-search">search</i></i>
+            <div class="my-search">
+                <label class="label-icon label-search-icon" for="search"></label>
+                <i class="material-icons icon-search"><i class="material-icons search-icon"
+                        id="icon-search">search</i></i>
                 <input id="search" placeholder="Ingresá tu búsqueda" type="search" class="input-search">
-                <label class="label-icon label-search-icon" for="search">
-                </label>
             </div>
-            <div class="select-tipo">
-                <label class="label-select-tipo color">Tipo</label>
+            <div class="container-selects">
+                <div id="select-tipo" class="select-tipo">
+                    <!-- <label class="label-select-tipo color">Tipo</label>
                 <select class="select-search-tipo" id="tipo-by" name="tipo-by">
                     <option value="comics">Comic</option>
                     <option value="characters">Personajes</option>
-                </select>
-            </div>
-            <div class="select-orden">
-                <label class="label-select-orden">Orden</label>
+                </select> -->
+                </div>
+                <div id="select-order" class="select-orden">
+                    <!-- <label class="label-select-orden">Orden</label>
                 <select name="order-by" id="order-by" class="select-search-orden">
                     <option value="title">A/Z</option>
                     <option value="-title">Z/A</option>
                     <option value="-focDate">Más Nuevo</option>
                     <option value="focDate">Más Viejo</option>
-                </select>
+                </select> -->
+                </div>
             </div>
             <button id="search-button" class="search-button search-button--1">Buscar</button>
         </form>
-        <!-- <div class="container-button create-button">
-                <button id="search-button" class="search-button search-button--1">Buscar</button>
-            </div> -->
+
         </div>
 
-        <section class="comic-section hidden">
-            <div class="container-img-description">
+        <section class="comic-detail hidden" id="comic-detail">
+            <!-- <div class="container-img-description">
                 <img src="" class="comic-img">
                 <div class="comic-details hidden">
                     <h4 class="comic-title"></h4>
@@ -82,7 +80,7 @@
                     <p class="comic-writers"></p>
                     <h5>Descripción:</h5>
                     <p class="comic-description"></p>
-                </div>
+                </div> -->
             </div>
             <div id="resultados-personajes" class="resultados-personajes">
             </div>
@@ -90,37 +88,13 @@
 
         <section class="results-section">
             <div class="title-results">
-                <h4 class="results-title">Resultados</h4>
-                <p class="results-count">
-                    <span class="results-number">0</span> RESULTADOS
-                </p>
-            </div>
-            <div class="results-comics" id="results-comics"></div>
-            <div class="results-characters" id="results-characters"></div>
-            <div class="div-container-paginador">
-                <!-- <div class="container-paginador">
-                    <p>Pagina Actual: <span id="pagina-actual"></span></p>
-                    <p>Total de paginas: <span id="total-paginas"></span></p>
-                </div> -->
-
-                <div id= "container-pagination" class="pagination">
-                    <!-- <button type="button" id="first-page" class="first-page pagination-button"
-                        aria-label="Página previa">
-                        <i class="fas fa-angle-double-left" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="previus-page" class="previous-page pagination-button"
-                        aria-label="Página Anterior">
-                        <i class="fas fa-angle-left" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="next-page" class="next-page pagination-button"
-                        aria-label="Siguiente Página">
-                        <i class="fas fa-angle-right" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" id="last-page" class="last-page pagination-button" aria-label="Última página">
-                        <i class="fas fa-angle-double-right" aria-hidden="true"></i>
-                    </button> -->
+                <h3 class="results-title">Resultados</h3>
+                <div class="results-count">
+                    <h4 class="results-number">0</h4> RESULTADOS
                 </div>
             </div>
+            <div class="results" id="results"></div>
+            <div id="container-pagination" class="container-pagination"></div>
         </section>
     </main>
 
@@ -128,13 +102,7 @@
         <div class="text-footer">Hecho por Vero y Lucila</div>
         <div class="container-iconos">
             <div class="iconos-footer">
-                <img class="img-footer" src="./imagenes/natasha.png">
-            </div>
-            <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/gamora.png">
-            </div>
-            <div class="iconos-footer">
-                <img class="img-footer" src="./imagenes/tony.png">
             </div>
             <div class="iconos-footer">
                 <img class="img-footer" src="./imagenes/wanda.png">
@@ -145,22 +113,13 @@
         </div>
     </footer>
 
-    <!-- <div id="loader-container" class="loader-container">
-        <div class="loader">
-            <div class="espera1 div"></div>
-            <div class="espera2 div"></div>
-            <div class="espera3 div"></div>
-        </div>
-    </div> -->
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
     <script src="./api/comics.js"></script>
     <script src="./controlers/main.js"></script>
     <script src="./api/characters.js"></script>
-    <script src="./api/general.js"></script>
 </body>
 
 </html>
