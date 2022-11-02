@@ -26,18 +26,14 @@ const getParams = () => {
   return params;
 };
 
-// const getParam = () => {
-//   const param = new URLSearchParams(window.location.search);
-//   return param;
-// };
-
 const loadComics = async () => {
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
-  //const order = params.get('title')
-  //const tipo = params.get('comics')
+  
+  const order = params.get("order");
+  const query = params.get("query");
 
-  const comicsRsponse = await getComics(page, "title");
+  const comicsRsponse = await getComics(page, order, query);
 
   const data = comicsRsponse.data;
   const comics = data.results;
@@ -101,9 +97,10 @@ const loadCharacters = async () => {
   console.log('ejecute loadCharaters');
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
-  //const order = params.get('name')
-  //const tipo = params.get('characters')
-  const charactersResponse = await getCharacters(page, "name");
+  // const order = params.get("order");
+  // const query = params.get("query");
+
+  const charactersResponse = await getCharacters(page, 'name');
   const data = charactersResponse.data;
   const characters = data.results;
   const total = data.total;
@@ -140,12 +137,7 @@ const updateResultsCount = (count) => {
 const containerSelectTipo = document.getElementById("select-tipo");
 const selectOrderContainer = document.getElementById("select-order");
 const formSearch = document.getElementById("form-search");
-//const containerTipo = document.createElement("div");
-//containerTipo.setAttribute("id", "container-tipo");
 
-//cambiar esto en el sass
-
-//containerTipo.classList.add("select-tipo");
 const labelTipo = document.createElement("label");
 const labelOrder = document.createElement("label");
 const optionComic = document.createElement('option');
@@ -181,8 +173,6 @@ selectOrder.setAttribute("id", "order-by")
 
 selectTipo.classList.add("select-search-tipo");
 selectOrder.classList.add("select-search-orden");
-//formSearch.appendChild(containerTipo);
-//containerTipo.appendChild(containerSelectTipo);
 containerSelectTipo.appendChild(labelTipo);
 selectOrderContainer.appendChild(labelOrder);
 
@@ -215,16 +205,21 @@ optionZa.setAttribute("value","-title");
 optionNew.setAttribute("value","-focDate");
 optionOld.setAttribute("value","focDate");
 
+
+
 ///// funcion para los selects ///////
 
 formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
   const tipoBy = e.target["tipo-by"].value;
   const orderBy = e.target["order-by"].value;
+  const query = e.target["control-query"].value;
+
   const params = new URLSearchParams(window.location.search);
   params.set("order", orderBy);
   params.set("offset", 20);
   params.set("tipo", tipoBy);
+  params.set("query", query);
   window.location = window.location.pathname + "?" + params.toString();
 });
 
@@ -321,23 +316,14 @@ const init = () => {
   if(params.get('order') === 'focDate'){
     optionOld.setAttribute('selected', true)
   }
-  // orderBy.setAttribute('selected',params.get('order'))
 };
 
 init();
 
-// const inputSearch = document.getElementById('search');
-// const valueInputSearch = inputSearch.value;
-// console.log(valueInputSearch);
 
 // const crearOptions = () => {
 //   if (tipoBy === 'comics'){
-//     orderBy.innerHTML= `
-//     <option value="title">A/Z</option>
-//     <option value="-title">Z/A</option>
-//     <option value="-focDate">Más Nuevo</option>
-//     <option value="focDate">Más Viejo</option>`
-//     alert('hola')
+//      select.appendChild()
 //   }
 //   if (tipoBy === 'charaters'){
 //     orderBy.innerHTML= `
