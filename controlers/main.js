@@ -52,7 +52,6 @@ const loadComics = async () => {
 
   renderPagination(Math.ceil(data.total / 20));
 };
-
 //***********************  LOAD INFO COMIC *************
 
 //********** El crea los card dentro del forEach, ahi dentro luego del h2, crea un card.addEventListener para que escuche cada vez.
@@ -94,13 +93,12 @@ const loadComics = async () => {
 
 
 const loadCharacters = async () => {
-  console.log('ejecute loadCharaters');
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("p")) || 1;
-  // const order = params.get("order");
-  // const query = params.get("query");
+  const order = params.get("order");
+  const query = params.get("query");
 
-  const charactersResponse = await getCharacters(page, 'name');
+  const charactersResponse = await getCharacters(page, order, query);
   const data = charactersResponse.data;
   const characters = data.results;
   const total = data.total;
@@ -147,6 +145,8 @@ const optionAz = document.createElement('option');
 const optionZa = document.createElement('option');
 const optionNew = document.createElement('option');
 const optionOld = document.createElement('option');
+const optionName = document.createElement('option');
+const optionNoName = document.createElement('option');
 
 
 labelTipo.classList.add("label-select-tipo");
@@ -163,6 +163,8 @@ const aZText = document.createTextNode("A/Z");
 const zAText = document.createTextNode("Z/A");
 const newText = document.createTextNode("Más nuevo");
 const oldText = document.createTextNode("Más antiguo");
+const nameText = document.createTextNode("A/Z");
+const noNameText = document.createTextNode("Z/A");
 
 const selectTipo = document.createElement("select");
 const selectOrder = document.createElement("select");
@@ -185,18 +187,14 @@ selectOrderContainer.appendChild(selectOrder);
 selectTipo.appendChild(optionComic);
 selectTipo.appendChild(optionCharacter);
 
-
-selectOrder.appendChild(optionAz);
-selectOrder.appendChild(optionZa);
-selectOrder.appendChild(optionNew);
-selectOrder.appendChild(optionOld);
-
 optionComic.appendChild(comicText);
 optionCharacter.appendChild(characterText);
 optionAz.appendChild(aZText);
 optionZa.appendChild(zAText);
 optionNew.appendChild(newText);
 optionOld.appendChild(oldText);
+optionName.appendChild(nameText);
+optionNoName.appendChild(noNameText);
 
 optionComic.setAttribute("value","comics");
 optionCharacter.setAttribute("value","characters");
@@ -204,6 +202,8 @@ optionAz.setAttribute("value","title");
 optionZa.setAttribute("value","-title");
 optionNew.setAttribute("value","-focDate");
 optionOld.setAttribute("value","focDate");
+optionName.setAttribute("value","name");
+optionNoName.setAttribute("value","-name");
 
 
 
@@ -292,15 +292,19 @@ const renderPagination = (totalPages) => {
 };
 
 
-
 const init = () => {
   const orderBy = document.getElementById('order-by')
-  console.log(orderBy);
   const params = new URLSearchParams(window.location.search);
   if (params.get("tipo") === "characters") {
+    selectOrder.appendChild(optionName);
+    selectOrder.appendChild(optionNoName);
     optionCharacter.setAttribute('selected', true)
     loadCharacters();
-  } else {
+  } else if((params.get("tipo") === "comics")) {
+    selectOrder.appendChild(optionAz);
+    selectOrder.appendChild(optionZa);
+    selectOrder.appendChild(optionNew);
+    selectOrder.appendChild(optionOld)
     optionComic.setAttribute('selected', true)
     loadComics();
   }
@@ -316,20 +320,12 @@ const init = () => {
   if(params.get('order') === 'focDate'){
     optionOld.setAttribute('selected', true)
   }
+  if (params.get('order') === 'name') {
+    optionName.setAttribute('selected', true)
+  }
+  if (params.get('order') === '-name') {
+    optionNoName.setAttribute('selected', true)
+  }
 };
 
 init();
-
-
-// const crearOptions = () => {
-//   if (tipoBy === 'comics'){
-//      select.appendChild()
-//   }
-//   if (tipoBy === 'charaters'){
-//     orderBy.innerHTML= `
-//     <option value="title">A/Z</option>
-//     <option value="-title">Z/A</option>`
-//   }
-// }
-
-// crearOptions()

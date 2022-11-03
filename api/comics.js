@@ -24,15 +24,17 @@ const getComics = async (page, orderBy,query) =>{
     return data;
 };
 
-const getCharacters = async (page, orderBy) =>{
+const getCharacters = async (page, orderBy, query) =>{
     const offset = (page - 1) * 20;
-//    if (offset) url += `&offset=${offset}`;
+    let url = `${baseUrl}/characters?apikey=${apiKey}`;
 
-//   if (orderBy) url += `&orderBy=${orderBy}`;
+   if (offset) url += `&offset=${offset}`;
 
-//   if (query !== "") url += `&titleStartsWith=${query}`;
+  if (orderBy) url += `&orderBy=${orderBy}`;
 
-    const response = await fetch(`${baseUrl}/characters?apikey=${apiKey}&offset=${offset}&orderBy=${orderBy}`);
+  if (query !== "") url += `&nameStartsWith=${query}`;
+
+    const response = await fetch(url);
     const data = await response.json()
     
     return data;
