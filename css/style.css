@@ -20,18 +20,8 @@
 .container-footer .text-footer {
   width: 100%;
   font-size: 1em;
-  font-family: "Bangers", cursive;
+  font-family: Arial, Helvetica, sans-serif;
   padding-top: 2%;
-}
-@media screen and (max-width: 680px) and (min-width: 200px) {
-  .container-footer .container-footer {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
-}
-@media screen and (max-width: 376px) and (min-width: 200px) {
-  .container-footer .container-footer {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
 }
 .container-footer .container-iconos {
   height: 50%;
@@ -78,7 +68,7 @@
   height: 5vh;
   display: flex;
   background-color: #000000;
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-style: normal;
 }
 .logo-container .container-switch {
@@ -258,6 +248,10 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .hidden {
@@ -664,16 +658,10 @@
   .container-main .results-section {
     width: 95%;
   }
-  .container-main .container-pagination {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
 }
 @media screen and (max-width: 376px) and (min-width: 200px) {
   .container-main .results-section {
     width: 95%;
-  }
-  .container-main .container-pagination {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 }
 

@@ -9,23 +9,10 @@
     .text-footer {
         width: 100%;
         font-size: 1em;
-        font-family: "Bangers", cursive;
         padding-top: 2%;
     }
 
-    @media screen and (max-width: 680px) and (min-width: 200px) {
 
-        .container-footer{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
-    }
-
-    @media screen and (max-width: 376px) and (min-width: 200px) {
-        
-        .container-footer{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
-    }
 
     .container-iconos {
         height: 50%;

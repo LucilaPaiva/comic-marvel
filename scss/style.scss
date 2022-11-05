@@ -9,13 +9,16 @@
     padding: 0;
 }
 
+body{
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
 .hidden {
     display: none;
 }
 
 .container-main {
     width: 100%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
 
     .search-title {
@@ -33,7 +36,6 @@
         margin: auto;
         margin-bottom: 5%;
         margin-top: 3%;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
         .my-search {
             width: 40%;
@@ -494,7 +496,6 @@
                 .btn {
                     width: 40px;
                     height: 40px;
-                    font-family: "Bangers", cursive;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -512,10 +513,6 @@
         .results-section {
             width: 95%;
         }
-
-        .container-pagination{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
     }
 
     @media screen and (max-width: 376px) and (min-width: 200px) {
@@ -523,14 +520,5 @@
             width: 95%;
         }
 
-        .container-pagination{
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        }
     }
 }
-
-// @media screen and (max-width: 680px) and (min-width: 200px) {
-//     .container-main {
-//         background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIxjCE4QvqTQAnc5ddDPUaTosdT42w0dm7Q&usqp=CAU);
-//     }
-// }
