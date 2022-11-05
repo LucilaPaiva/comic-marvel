@@ -40,8 +40,8 @@ const getCharacters = async (page, orderBy, query) =>{
     return data;
 };
 
-// const getInfoComic = async () =>{
-//     const response = await fetch(`${baseUrl}/comics?apikey=${apiKey}&offset=0&orderBy=title`);
-//     const data = await response.json()
-//     return data;
-// }
+const loadInfoComic = async () =>{
+    const response = await fetch(`${baseUrl}/comics?apikey=${apiKey}&offset=0&orderBy=title`);
+    const data = await response.json()
+    return data;
+};
