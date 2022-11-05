@@ -32,7 +32,7 @@ const loadComics = async () => {
   
   const order = params.get("order");
   const query = params.get("query");
-
+ 
   const comicsRsponse = await getComics(page, order, query);
 
   const data = comicsRsponse.data;
@@ -52,7 +52,7 @@ const loadComics = async () => {
 
   renderPagination(Math.ceil(data.total / 20));
 };
-//***********************  LOAD INFO COMIC *************
+//***********************  LOAD INFO COMIC ************* clase 24/10 hasta 1:20 
 
 //********** El crea los card dentro del forEach, ahi dentro luego del h2, crea un card.addEventListener para que escuche cada vez.
 //luego ver el index.html <h2>Acá debería mostrarse el comic seleccionado</h2> y debajo
@@ -62,14 +62,14 @@ const loadComics = async () => {
 
 //  card.addEventListener('click', ()=>{
 //  loadInfoComic(comic);
-//results.classList.add('d-none'); 
+//results.classList.add('hidden'); 
 
 //})
 
-// const loadInfoComics = async () =>{
-//  const comicDetail = document.getelementById('comic-detail');
-// comicDetail.classList.remove("d-none");
-
+const loadInfoComics = async () =>{
+ //const comicDetail = document.getelementById('comic-detail');
+ // comicDetail.classList.remove("hidden");
+  console.log(loadInfoComics);
 // const title = document.createElement('h3');
 //const text = document.createTextnode(comic.title);
 //const div  = document.createElement('div')
@@ -86,9 +86,9 @@ const loadComics = async () => {
 //   const data = comicsResponse.data;
 //   const comics = data.results;
 //   const detail = comics;
-// }
+};
 
-// loadInfoComics()
+loadInfoComics();
 
 
 
