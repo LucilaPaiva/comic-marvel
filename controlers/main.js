@@ -216,10 +216,10 @@ formSearch.addEventListener("submit", (e) => {
   const query = e.target["control-query"].value;
 
   const params = new URLSearchParams(window.location.search);
-  params.set("order", orderBy);
-  params.set("offset", 20);
-  params.set("tipo", tipoBy);
-  params.set("query", query);
+  if(orderBy) params.set("order", orderBy);
+  if(orderBy) params.set("offset", 20);
+  if(tipoBy) params.set("tipo", tipoBy);
+  if(query) params.set("query", query);
   window.location = window.location.pathname + "?" + params.toString();
 });
 
@@ -300,7 +300,7 @@ const init = () => {
     selectOrder.appendChild(optionNoName);
     optionCharacter.setAttribute('selected', true)
     loadCharacters();
-  } else if((params.get("tipo") === "comics")) {
+  } else {
     selectOrder.appendChild(optionAz);
     selectOrder.appendChild(optionZa);
     selectOrder.appendChild(optionNew);

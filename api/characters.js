@@ -1,9 +1,15 @@
-// const baseUrl = "https://gateway.marvel.com/v1/public/";
-// const apiPublic = "9793363e7276e556c84635fef3aecb00";
+const getCharacters = async (page, orderBy, query) =>{
+    const offset = (page - 1) * 20;
+    let url = `${baseUrl}/characters?apikey=${apiKey}`;
 
-// const getCharacters = async () =>{
-//     const response = await fetch(`${baseUrl}/characters?apikey=${apiPublic}&offset=0&orderBy=name`);
-//     const data = await response.json()
-//     return data;
-//     console.log(data);
-// }
+   if (offset) url += `&offset=${offset}`;
+
+  if (orderBy) url += `&orderBy=${orderBy}`;
+
+  if (query && query !== "") url += `&nameStartsWith=${query}`;
+
+    const response = await fetch(url);
+    const data = await response.json()
+    
+    return data;
+};
